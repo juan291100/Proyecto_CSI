@@ -1,0 +1,139 @@
+/*---------------------{ ALL }--------------------*/
+@import url('https://fonts.googleapis.com/css2?family=Changa:wght@500&display=swap');
+
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    font-family: 'Changa', sans-serif;
+}
+/*------------------------------------------------*/
+
+/*-----------------{ SIDE MENU }------------------*/
+#wrapper{
+    position: relative;
+    height: 100%; /* Hace que el tamaño sea 100% de la pantalla. */
+    width: 330px;
+}
+
+#button{
+    display: none;
+}
+
+#button:checked ~ #buttonmenu{
+    left: 275px;
+}
+
+#button:checked ~ #buttonmenu i:before{
+    content: "\f00d";
+}
+
+#button:checked ~ #sidebar{
+    left: 0px;
+}
+
+#buttonmenu{
+    position: absolute;
+    top: 10px;
+    left: 20px;
+    height: 45px;
+    width: 45px;
+    z-index: 999;
+    color: #f2f2f2;
+    background-color: #4a4a4a;
+    border: 1px solid #333;
+    text-align: center;
+    line-height: 47px;
+    border-radius: 50px;
+    cursor: pointer;
+    font-size: 23px;
+    transition: all 0.3s ease;
+}
+
+#sidebar{
+    position: fixed;
+    height: 100%;
+    width: 270px;
+    background-color: #404040;
+    overflow: hidden;
+    left: -270px;
+    transition: all 0.3 ease;
+}
+
+#title{
+    color: #f2f2f2;
+    font-size: 25px;
+    font-weight: 600;
+    line-height: 65px;
+    text-align: center;
+    background-color: #333;
+}
+
+#options{
+    position: relative;
+    background-color: #404040;
+    height: 100%;
+    width: 100%;
+    list-style: none;
+}
+
+#sidebar li a{
+    color: #fff;
+}
+
+#options li{
+    padding-left: 40px;
+    line-height: 50px;
+    border-top: 1px solid rgb(255, 255, 255, 0.1);
+    border-bottom: 1px solid #333;
+    transition: all 0.3s ease;
+}
+
+#options li:hover{
+    border-top: 1px solid transparent;
+    border-bottom: 1px solid transparent;
+    box-shadow: 0px 0px 10px 3px #222;
+}
+
+#options li a{
+    color: #fff;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: 500;
+    height: 100%;
+    width: 100%;
+    display: block;
+}
+
+#options li a i{
+    margin-right: 20px;
+}
+
+#icons{
+    height: 40px;
+    width: 100%;
+    position: absolute;
+    bottom: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#icons a{
+    margin: 0px 5px;
+    color: #f2f2f2;
+    display: block;
+    height: 40px;
+    width: 40px;
+    background-color: #4a4a4a;
+    border: 1px solid #383838;
+    text-align: center;
+    line-height: 40px;
+    border-radius: 5px;
+    transition: all 0.3 ease;
+}
+
+#icons a:hover{
+    background-color: #404040;
+}
+/*------------------------------------------------*/
