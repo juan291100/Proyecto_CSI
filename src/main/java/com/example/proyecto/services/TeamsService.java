@@ -25,11 +25,11 @@ public class TeamsService {
 
     public TeamsModel updateTeam(Long id, TeamsModel tRequest){
         TeamsModel tModel = tRepository.findById(id).get();
-        tModel.setIdLeague(tRequest.getIdLeague());
-        tModel.setNameTeam(tRequest.getNameTeam());
-        tModel.setYearTeam(tRequest.getYearTeam());
-        tModel.setCityTeam(tRequest.getCityTeam());
-        tModel.setTrophiesTeam(tRequest.getTrophiesTeam());
+        tModel.setLeagueId(tRequest.getLeagueId());
+        tModel.setTeamName(tRequest.getTeamName());
+        tModel.setTeamYear(tRequest.getTeamYear());
+        tModel.setTeamCity(tRequest.getTeamCity());
+        tModel.setTeamTrophies(tRequest.getTeamTrophies());
         return saveTeam(tModel);
     }
 

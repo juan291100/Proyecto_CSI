@@ -25,12 +25,12 @@ public class PlayersService {
 
     public PlayersModel updatePlayer(Long id, PlayersModel pRequest){
         PlayersModel pModel = pRepository.findById(id).get();
-        pModel.setIdTeam(pRequest.getIdTeam());
-        pModel.setNamePlayer(pRequest.getNamePlayer());
-        pModel.setLastNamePlayer(pRequest.getLastNamePlayer());
-        pModel.setAgePlayer(pRequest.getAgePlayer());
-        pModel.setPositionPlayer(pRequest.getPositionPlayer());
-        pModel.setSquadNumberPlayer(pRequest.getSquadNumberPlayer());
+        pModel.setTeamId(pRequest.getTeamId());
+        pModel.setPlayerName(pRequest.getPlayerName());
+        pModel.setPlayerLastName(pRequest.getPlayerLastName());
+        pModel.setPlayerAge(pRequest.getPlayerAge());
+        pModel.setPlayerPosition(pRequest.getPlayerPosition());
+        pModel.setPlayerSquadNumber(pRequest.getPlayerSquadNumber());
         return savePlayer(pModel);
     }
 

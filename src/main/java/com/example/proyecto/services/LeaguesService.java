@@ -25,9 +25,9 @@ public class LeaguesService {
 
     public LeaguesModel updateLeague(Long id, LeaguesModel lRequest){
         LeaguesModel lModel = lRepository.findById(id).get();
-        lModel.setNameLeague(lRequest.getNameLeague());
-        lModel.setCountryLeague(lRequest.getCountryLeague());
-        lModel.setAssociationLeague(lRequest.getAssociationLeague());
+        lModel.setLeagueName(lRequest.getLeagueName());
+        lModel.setLeagueCountry(lRequest.getLeagueCountry());
+        lModel.setLeagueAssociation(lRequest.getLeagueAssociation());
         return saveLeague(lModel);
     }
 

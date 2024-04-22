@@ -17,34 +17,34 @@ public class PlayersModel {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    Long idPlayer;
+    Long playerId;
 
     @Column(nullable = false)
-    Long idTeam;
+    Long teamId;
 
     @Column(nullable = false)
-    String namePlayer;
+    String playerName;
 
     @Column(nullable = false)
-    String lastNamePlayer;
+    String playerLastName;
 
     @Column
-    int agePlayer;
+    int playerAge;
 
     @Column(nullable = false)
-    String positionPlayer;
+    String playerPosition;
 
     @Column 
-    int squadNumberPlayer;
+    int playerSquadNumber;
 
-    public PlayersModel(Long idTeam, String namePlayer, String lastNamePlayer, int agePlayer, 
-        String positionPlayer, int squadNumberPlayer) {
-        this.idTeam = idTeam;
-        this.namePlayer = namePlayer;
-        this.lastNamePlayer = lastNamePlayer;
-        this.agePlayer = agePlayer;
-        this.positionPlayer = positionPlayer;
-        this.squadNumberPlayer = squadNumberPlayer;
+    public PlayersModel(Long teamId, String playerName, String playerLastName, int playerAge, 
+            String playerPosition, int playerSquadNumber) {
+        this.teamId = teamId;
+        this.playerName = playerName;
+        this.playerLastName = playerLastName;
+        this.playerAge = playerAge;
+        this.playerPosition = playerPosition;
+        this.playerSquadNumber = playerSquadNumber;
     }
 
 }

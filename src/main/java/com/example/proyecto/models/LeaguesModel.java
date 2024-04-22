@@ -17,21 +17,21 @@ public class LeaguesModel {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    Long idLeague;
+    Long leagueId;
 
     @Column(nullable = false,unique = true)
-    String nameLeague;
+    String leagueName;
 
     @Column(nullable = false)
-    String countryLeague;
+    String leagueCountry;
 
     @Column
-    String associationLeague;
+    String leagueAssociation;
 
-    public LeaguesModel(String nameLeague, String countryLeague, String associationLeague) {
-        this.nameLeague = nameLeague;
-        this.countryLeague = countryLeague;
-        this.associationLeague = associationLeague;
+    public LeaguesModel(String leagueName, String leagueCountry, String leagueAssociation) {
+        this.leagueName = leagueName;
+        this.leagueCountry = leagueCountry;
+        this.leagueAssociation = leagueAssociation;
     }
    
 }

@@ -17,29 +17,29 @@ public class TeamsModel {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    Long idTeam;
+    Long teamId;
 
     @Column(nullable = false)
-    Long idLeague;
+    Long leagueId;
 
     @Column(nullable = false,unique = true)
-    String nameTeam;
+    String teamName;
 
     @Column(nullable = false)
-    int yearTeam;
+    int teamYear;
 
     @Column(nullable = false)
-    String cityTeam;
+    String teamCity;
 
     @Column
-    int trophiesTeam;
+    int teamTrophies;
 
-    public TeamsModel(Long idLeague, String nameTeam, int yearTeam, String cityTeam, int trophiesTeam) {
-        this.idLeague = idLeague;
-        this.nameTeam = nameTeam;
-        this.yearTeam = yearTeam;
-        this.cityTeam = cityTeam;
-        this.trophiesTeam = trophiesTeam;
+    public TeamsModel(Long leagueId, String teamName, int teamYear, String teamCity, int teamTrophies) {
+        this.leagueId = leagueId;
+        this.teamName = teamName;
+        this.teamYear = teamYear;
+        this.teamCity = teamCity;
+        this.teamTrophies = teamTrophies;
     }
     
 }
