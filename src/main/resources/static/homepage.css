@@ -14,17 +14,18 @@
     position: relative;
     height: 100%; /* Hace que el tamaño sea 100% de la pantalla. */
     width: 330px;
+    z-index: 800;
 }
 
 #button{
     display: none;
 }
 
-#button:checked ~ #buttonmenu{
+#button:checked ~ #button-menu{
     left: 275px;
 }
 
-#button:checked ~ #buttonmenu i:before{
+#button:checked ~ #button-menu i:before{
     content: "\f00d";
 }
 
@@ -32,22 +33,28 @@
     left: 0px;
 }
 
-#buttonmenu{
-    position: absolute;
-    top: 10px;
+#button-menu{
+    position: fixed;
+    top: 20px;
     left: 20px;
     height: 45px;
     width: 45px;
-    z-index: 999;
-    color: #f2f2f2;
-    background-color: #4a4a4a;
+    z-index: 900;
+    color: #333;
+    background-color: #f2f2f2;
     border: 1px solid #333;
     text-align: center;
-    line-height: 47px;
+    line-height: 48px;
     border-radius: 50px;
     cursor: pointer;
     font-size: 23px;
     transition: all 0.3s ease;
+}
+
+#logo{
+    margin-top: 20px;
+    height: 70px;
+    width: 70px;
 }
 
 #sidebar{
@@ -66,7 +73,7 @@
     font-weight: 600;
     line-height: 65px;
     text-align: center;
-    background-color: #333;
+    background-color: #404040;
 }
 
 #options{
@@ -83,9 +90,7 @@
 
 #options li{
     padding-left: 40px;
-    line-height: 50px;
-    border-top: 1px solid rgb(255, 255, 255, 0.1);
-    border-bottom: 1px solid #333;
+    line-height: 70px;
     transition: all 0.3s ease;
 }
 
@@ -113,7 +118,7 @@
     height: 40px;
     width: 100%;
     position: absolute;
-    bottom: 100px;
+    bottom: 140px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -137,3 +142,106 @@
     background-color: #404040;
 }
 /*------------------------------------------------*/
+
+.opacity{
+    position: absolute;
+    background-color: #0000;
+    opacity: 30%;
+    width: 100%;
+    height: 710px;
+    z-index: 1;
+}
+
+/* Slideshow container */
+.slideshow-container{
+    width: 100%;
+    position: absolute;
+    margin: auto;
+}
+  
+/* Hide the images by default */
+.slides{
+    display: none;
+}
+
+.images{
+    width: 100%;
+    height: 710px;
+    z-index: 0;
+}
+  
+/* Next & previous buttons */
+.prev, .next{
+    cursor: pointer;
+    position: absolute;
+    top: 43%;
+    width: auto;
+    margin-top: -22px;
+    padding: 16px;
+    color: white;
+    font-weight: bold;
+    font-size: 50px;
+    transition: 0.6s ease;
+    border-radius: 0px 3px 3px 0px;
+    user-select: none;
+    z-index: 2;
+}
+  
+/* Position the "next button" to the right */
+.next{
+    right: 0px;
+    border-radius: 3px 0px 0px 3px;
+}
+  
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover, .next:hover{
+    background-color: rgba(0,0,0,0.8);
+}
+  
+/* Caption text */
+.sliders-text{
+    color: #f2f2f2;
+    font-size: 15px;
+    padding: 8px 12px;
+    position: absolute;
+    bottom: 8px;
+    width: 100%;
+    text-align: center;
+    z-index: 2;
+}
+
+.dot-box{
+    text-align: center;
+    position: absolute;
+    top: 670px;
+    left: 48%;
+    z-index: 2;
+}
+  
+/* The dots/bullets/indicators */
+.dot{
+    cursor: pointer;
+    height: 15px;
+    width: 15px;
+    margin: 0px 2px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+    transition: background-color 0.6s ease;
+
+}
+  
+.active, .dot:hover {
+    background-color: #717171;
+}
+  
+/* Fading animation */
+.fade{
+    animation-name: fade;
+    animation-duration: 1.5s;
+}
+  
+@keyframes fade {
+    from {opacity: .4}
+    to {opacity: 1}
+}
