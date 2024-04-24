@@ -15,4 +15,8 @@ public class UsersService {
         return this.uRepository.save(uModel);
     }
 
+    public UsersModel findUser(String name, String password){
+        return this.uRepository.findByUserNameOrUserEmailAndUserPassword(name, name, password);
+    }
+
 }

@@ -7,29 +7,25 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     </head>
     <body>
-
-        <!--------------------------------------------------{ SIDE BAR }-------------------------------------------------->
-
         <div id="wrapper">    
             
             <input type="checkbox" id="button">
-            <label for="button" id="button-menu">
+            <label for="button" id="buttonmenu">
                 <i class="fa-solid fa-bars"></i>
             </label>
 
             <nav id="sidebar">
 
-                <div id="title">
-                    <img id="logo" src="logo.gif">
-                </div>
+                <div id="title">Side Menu</div>
 
                 <ul id="options">
 
                     <!-- The "#" is where you will put the direction you want this button to take you. -->
                     <!-- The "fas fa-(something)" is the icon from font awesome. -->
 
-                    <li><a href="#"><i class="fa-solid fa-house"></i></i>Home</a></li>
-                    <li><a href="#"><i class="fa-solid fa-address-book"></i>Clients</a></li>
+                    <li><a th:href= "@{/prueba}"><i class="fa-solid fa-house"></i></i>Home</a></li>
+                    <li><a href="#"><i class="fa-solid fa-sliders"></i>Clients</a></li>
+                    <li><a href="#"><i class="fa-solid fa-address-book"></i>Services</a></li>
                     <li><a href="#"><i class="fa-solid fa-gear"></i>Settings</a></li>
                     <li><a href="#"><i class="fa-solid fa-bars-staggered"></i>Features</a></li>
                     <li><a href="#"><i class="fa-solid fa-user"></i>About Us</a></li>
@@ -38,95 +34,11 @@
                     <div id="icons">
                         <a href="#"><i class="fa-brands fa-facebook"></i></a>
                         <a href="#"><i class="fa-brands fa-twitter"></i></a>
-                        <a href="#"><i class="fa-brands fa-github"></i></a>
+                        <a href="https://github.com/juan291100/Proyecto_CSI"><i class="fa-brands fa-github"></i></a>
                         <a href="#"><i class="fa-brands fa-youtube"></i></a>
                     </div>
                 </ul>
             </nav>
         </div>
-
-        <!---------------------------------------------------------------------------------------------------------------->
-
-
-        <!-------------------------------------------------{ SLIDESHOW }-------------------------------------------------->
-
-        <!-- Slideshow container -->
-
-        <div class="opacity"></div>
-
-        <div class="slideshow-container">
-
-            <!-- Full-width images with number and caption text -->
-            <div class="slides fade">
-                <img class="images" src="background1.jpg">
-                <div class="sliders-text">Caption Text</div>
-            </div>
-        
-            <div class="slides fade">
-                <img class="images" src="background2.jpg">
-                <div class="sliders-text">Caption Two</div>
-            </div>
-        
-            <div class="slides fade">               
-                <img class="images" src="background3.jpg">
-                <div class="sliders-text">Caption Three</div>
-            </div>
-        
-            <!-- Next and previous buttons -->
-            <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-            <a class="next" onclick="plusSlides(1)">&#10095;</a>
-
-        </div><br>
-    
-        <!-- The dots/circles -->
-        <div class="dot-box">
-            <span class="dot" onclick="currentSlide(1)"></span>
-            <span class="dot" onclick="currentSlide(2)"></span>
-            <span class="dot" onclick="currentSlide(3)"></span>
-        </div>
-
-        <script>
-
-            let slideIndex = 1;
-            showSlides(slideIndex);
-
-            // Next/previous controls
-            function plusSlides(n) {
-                showSlides(slideIndex += n);
-            }
-
-            // Thumbnail image controls
-            function currentSlide(n) {
-                showSlides(slideIndex = n);
-            }
-
-            function showSlides(n) {
-                let i;
-                let slides = document.getElementsByClassName("slides");
-                let dots = document.getElementsByClassName("dot");
-
-                if (n > slides.length) {
-                    slideIndex = 1
-                }
-
-                if (n < 1) {
-                    slideIndex = slides.length
-                }
-
-                for (i = 0; i < slides.length; i++) {
-                    slides[i].style.display = "none";
-                }
-
-                for (i = 0; i < dots.length; i++) {
-                    dots[i].className = dots[i].className.replace(" active", "");
-                }
-
-                slides[slideIndex-1].style.display = "block";
-                dots[slideIndex-1].className += " active";
-            }
-
-        </script>
-        
-        <!---------------------------------------------------------------------------------------------------------------->
     </body>
 </html>
