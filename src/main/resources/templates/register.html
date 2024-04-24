@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>Register</title>
+        <meta http-equiv="cache-control" charset="UTF-8" name="keywords" lang="es"></meta>
+        <link type="text/css" rel="stylesheet" th:href= "@{/register.css}">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" 
+            integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" 
+                crossorigin="anonymous" referrerpolicy="no-referrer" />
+    </head>
+    <body>
+
+        <div id="background"></div>
+
+        <div id="login-box">
+
+            <div id="top-area">
+
+                <img id="emblem" th:src="@{/uefaemblemdark.png}">
+                
+                <a id="close-button" th:href= "@{/}">
+                    <i class="fa-solid fa-x"></i>
+                </a>
+                
+            </div>
+
+            <form th:action="@{/register}" th:object="${user}" method="post">       
+
+                <div id="info-box">
+                    <label for="user-input"><i class="fa-solid fa-user"></i></label>
+                    <input type="text" id="user-input" size="20" placeholder="Usuario" 
+                        required th:field="*{userName}"></input>
+                </div>
+                
+                <div id="info-box">
+                    <label for="email-input"><i class="fa-solid fa-envelope"></i></label>
+                    <input type="text" id="email-input" size="20" placeholder="Email" 
+                        pattern="[A-Za-z0-9]{0,45}[@]{1}[A-Za-z]{0,15}[.]{1}[A-Za-z]{0,5}" 
+                            required th:field="*{userEmail}"></input>
+                </div>
+
+                <div id="password-area">
+
+                    <div id="info-box">
+                        <label for="password-input"><i class="fa-solid fa-lock fa-shake"></i></label>
+                        <input type="password" id="password-input" size="20" placeholder="Contraseña" 
+                            required th:field="*{userPassword}"></input>
+                    </div>
+
+                    <input type="checkbox" onclick="myFunction()" id="password-see">
+                    <label for="password-see" id="password-see-box">
+                        <i class="fa-solid fa-eye-slash"></i>
+                    </label>
+                    
+                </div>
+
+                <input type="submit" id="login-input" value="Regístrate"></input>
+
+            </form>
+
+            <label style="color: red" th:if="${error != null}" th:text="${error}"></label>
+
+            <div id="login">
+                <label>¿Ya tienes una cuenta? <a th:href= "@{/login}">Login</a></label>
+            </div>
+
+        </div>
+
+        <script>
+
+            function myFunction() {
+                var x = document.getElementById("password-input");
+                if (x.type === "password") {
+                    x.type = "text";
+                } else {
+                    x.type = "password";
+                }
+            }
+
+        </script>
+
+    </body>
+</html>

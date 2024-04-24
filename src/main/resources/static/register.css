@@ -1,0 +1,154 @@
+/*------------------------------------------------------------{ ALL }------------------------------------------------------------*/
+@import url('https://fonts.googleapis.com/css2?family=Changa:wght@500&display=swap');
+
+*{
+    margin: 0px;
+    padding: 0px;
+    font-family: 'Changa', sans-serif;
+}
+/*-------------------------------------------------------------------------------------------------------------------------------*/
+
+
+
+/*---------------------------------------------------------{ REGISTER }----------------------------------------------------------*/
+#background{
+    position: fixed;
+    background-color: #000;
+    opacity: 60%;
+    height: 100%;
+    width: 100%;
+    z-index: 1;
+}
+
+#login-box{
+    position: fixed;
+    height: 535px;
+    width: 600px;
+    left: 30%;
+    top: 14%;
+    background-color: #f2f2f2;
+    box-shadow: 0px 0px 50px 0px #111111;
+    border-radius: 20px;
+    text-align: center;
+    z-index: 2;
+}
+
+#top-area{
+    display: flex;
+}
+
+#emblem{
+    margin-left: 38%;
+    height: 100px;
+    width: 150x;
+    margin-top: 30px;
+}
+
+#info-box{
+    margin-top: 30px;
+    border: solid 2px black;
+    border-radius: 50px;
+    width: 360px;
+    margin-left: 20%;
+}
+
+#info-box label{
+    font-size: 20px;
+    margin-left: 6px;
+    margin-right: 6px;
+}
+
+#user-input{
+    background-color: #f2f2f2;
+    border: 0px;
+    width: 300px;
+    font-size: 20px;
+    margin-right: 10px;
+    margin-top: 1px;
+    margin-bottom: 1px;
+}
+
+#user-input:focus{
+    outline: none;
+}
+
+#password-input{
+    background-color: #f2f2f2;
+    border: 0px;
+    width: 300px;
+    font-size: 20px;
+    margin-right: 10px;
+    margin-top: 2px;
+}
+
+#password-input:focus{
+    outline: none;
+}
+
+#email-input{
+    background-color: #f2f2f2;
+    border: 0px;
+    width: 300px;
+    font-size: 20px;
+    margin-right: 10px;
+    margin-top: 1px;
+    margin-bottom: 1px;
+}
+
+#email-input:focus{
+    outline: none;
+}
+
+#login-input{
+    background-color: #f2f2f2;
+    font-size: 20px;
+    margin-top: 30px;
+    border: solid 2px black;
+    border-radius: 50px;
+    width: 360px;
+    cursor: pointer;
+}
+
+#login-input:hover{
+    background-color: #333;
+    color: white;
+}
+
+#close-button{
+    margin-top: 25px;
+    font-size: 20px;
+    margin-left: 28%;
+    cursor: pointer;
+}
+
+#password-area{
+    display: flex;
+}
+
+#password-see{
+    display: none;
+}
+
+#password-see-box{
+    color: #333;
+    background-color: #f2f2f2;
+    border: 2px solid #333;
+    text-align: center;
+    line-height: 43px;
+    border-radius: 50px;
+    cursor: pointer;
+    font-size: 20px;
+    height: 40px;
+    width: 40px;
+    margin-top: 30px;
+    margin-left: 8px;
+}
+
+#password-see:checked ~ #password-see-box i:before{
+    content: "\f06e";
+}
+
+#login{
+    margin-top: 30px;
+}
+/*-------------------------------------------------------------------------------------------------------------------------------*/

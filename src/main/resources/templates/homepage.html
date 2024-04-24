@@ -1,44 +1,191 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
     <head>
-        <title>Centro Fútbol Europeo</title>
+        <title>UEFA</title>
         <meta http-equiv="cache-control" charset="UTF-8" name="keywords" lang="es"></meta>
-        <link type="text/css" rel="stylesheet" th:href="@{/homepage.css}">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <link rel="stylesheet" th:href= "@{/homepage.css}">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" 
+            integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" 
+                crossorigin="anonymous" referrerpolicy="no-referrer" />
     </head>
     <body>
-        <div id="wrapper">    
+
+        <!--------------------------------------------------{ SIDE BAR }-------------------------------------------------->
+
+        <div id="wrapper"> <!-- Contains everything of and related to the siderbar. -->   
             
-            <input type="checkbox" id="button">
-            <label for="button" id="buttonmenu">
-                <i class="fa-solid fa-bars"></i>
+            <input type="checkbox" id="button"> <!-- The input of the button that opens and closes the sidebar. -->
+            <label for="button" id="button-menu"> <!-- The button. -->
+                <i class="fa-solid fa-bars"></i> <!-- The 3 bars icon on the button. -->
             </label>
 
-            <nav id="sidebar">
+            <nav id="sidebar"> <!-- Contains everything in the sidebar. -->
 
-                <div id="title">Side Menu</div>
+                <div id="title"> <!-- Box wich contains the UEFA logo. -->
+                    <img id="logo" src="uefaemblem.png"> <!-- The UEFA logo. -->
+                </div>
 
-                <ul id="options">
+                <ul id="options"> <!-- Contains all the options that you can choose in the sidebar. -->
 
                     <!-- The "#" is where you will put the direction you want this button to take you. -->
                     <!-- The "fas fa-(something)" is the icon from font awesome. -->
 
-                    <li><a th:href= "@{/prueba}"><i class="fa-solid fa-house"></i></i>Home</a></li>
-                    <li><a href="#"><i class="fa-solid fa-sliders"></i>Clients</a></li>
-                    <li><a href="#"><i class="fa-solid fa-address-book"></i>Services</a></li>
-                    <li><a href="#"><i class="fa-solid fa-gear"></i>Settings</a></li>
-                    <li><a href="#"><i class="fa-solid fa-bars-staggered"></i>Features</a></li>
-                    <li><a href="#"><i class="fa-solid fa-user"></i>About Us</a></li>
-                    <li><a href="#"><i class="fa-solid fa-envelope"></i>Contact Us</a></li>
+                    <li><a href="#"><i class="fa-solid fa-house"></i></i>Home</a></li> <!-- Home "button" with its icon. -->
+                    <li><a href="#"><i class="fa-solid fa-address-book"></i>Clients</a></li> <!-- Clients "button" with its icon. -->
+                    <li><a href="#"><i class="fa-solid fa-gear"></i>Settings</a></li> <!-- Settings "button" with its icon. -->
+                    <li><a href="#"><i class="fa-solid fa-bars-staggered"></i>Features</a></li> <!-- Features "button" with its icon. -->
+                    <li><a href="#"><i class="fa-solid fa-user"></i>About Us</a></li> <!-- About Us "button" with its icon. -->
+                    <li><a href="#"><i class="fa-solid fa-envelope"></i>Contact Us</a></li> <!-- Contact Us "button" with its icon. -->
 
-                    <div id="icons">
-                        <a href="#"><i class="fa-brands fa-facebook"></i></a>
-                        <a href="#"><i class="fa-brands fa-twitter"></i></a>
-                        <a href="https://github.com/juan291100/Proyecto_CSI"><i class="fa-brands fa-github"></i></a>
-                        <a href="#"><i class="fa-brands fa-youtube"></i></a>
+                    <div id="icons"> <!-- Contains the buttons that will redirect you to his icon page. -->
+                        <a href="#"><i class="fa-brands fa-facebook"></i></a> <!-- Facebook button and icon. -->
+                        <a href="#"><i class="fa-brands fa-twitter"></i></a> <!-- Twitter button and icon. -->
+                        <a href="#"><i class="fa-brands fa-github"></i></a> <!-- Github button and icon. -->
+                        <a href="#"><i class="fa-brands fa-youtube"></i></a> <!-- Youtube button and icon. -->
                     </div>
                 </ul>
             </nav>
+
+            <div id="unclickable"></div> <!-- The unclickable black area that appears when the sidebar is open. -->
+
         </div>
+    
+        <!---------------------------------------------------------------------------------------------------------------->
+
+
+
+        <!-------------------------------------------------{ SLIDESHOW }-------------------------------------------------->
+
+        <div class="opacity"></div> <!-- Opacity above the images, to give them a more dark filter. -->
+
+        <div class="slideshow-container"> <!-- Area wich contains all the images and their text. -->
+
+            <div class="slides"> <!-- Slides area wich contains the first image and your text. -->
+                <img class="images" src="background3.jpg"> <!-- First background image. -->
+                <div class="sliders-text"> <!-- Box wich contains this image text. -->                   
+                    Estoy viviendo un sueño del que no quiero despertar nunca
+                </div>
+            </div>
+        
+            <div class="slides"> <!-- Slides area wich contains the second image and your text. -->
+                <img class="images" src="background2.jpg"> <!-- Second background image. -->
+                <div class="sliders-text"> <!-- Box wich contains this image text. -->
+                    Reconocer la derrota es la primera etapa de la victoria
+                </div>
+            </div>
+        
+            <div class="slides"> <!-- Slides area wich contains the third image and your text. -->     
+                <img class="images" src="background1.jpg"> <!-- Third background image. -->
+                <div class="sliders-text"> <!-- Box wich contains this image text. -->                 
+                    En el campo todos somos iguales cuando empieza el partido                
+                </div>
+            </div>
+               
+            <a class="prev" onclick="plusSlides(-1)">&#10094;</a> <!-- Previous image button. -->
+            <a class="next" onclick="plusSlides(1)">&#10095;</a> <!-- Next image button. -->
+
+        </div><br>
+    
+        
+        <div class="dot-box"> <!-- Box wich contains the dots. -->
+            <span class="dot" onclick="currentSlide(1)"></span> <!-- First dot. -->
+            <span class="dot" onclick="currentSlide(2)"></span> <!-- Second dot. -->
+            <span class="dot" onclick="currentSlide(3)"></span> <!-- Third dot. -->
+        </div>
+
+        <!-------------------------------------------{ SLIDESHOW JAVA SCRIPT }-------------------------------------------->
+
+        <script> // Java Script for the slideshow.
+
+            let slideIndex = 1;
+            showSlides(slideIndex);
+
+            // Next/previous controls
+            function plusSlides(n) {
+                showSlides(slideIndex += n);
+            }
+
+            // Thumbnail image controls
+            function currentSlide(n) {
+                showSlides(slideIndex = n);
+            }
+
+            function showSlides(n) {
+                let i;
+                let slides = document.getElementsByClassName("slides");
+                let dots = document.getElementsByClassName("dot");
+
+                if (n > slides.length) {
+                    slideIndex = 1
+                }
+
+                if (n < 1) {
+                    slideIndex = slides.length
+                }
+
+                for (i = 0; i < slides.length; i++) {
+                    slides[i].style.display = "none";
+                }
+
+                for (i = 0; i < dots.length; i++) {
+                    dots[i].className = dots[i].className.replace(" active", "");
+                }
+
+                slides[slideIndex-1].style.display = "block";
+                dots[slideIndex-1].className += " active";
+            }           
+
+            /* Slides that change automatically:
+            
+               Changes nedeed:
+               - Change all "slides" to "mySlides", both on html and css.
+               
+
+            let slideIndex = 0;
+            showSlides();
+
+            function showSlides() {
+                let i;
+                let slides = document.getElementsByClassName("mySlides");
+                let dots = document.getElementsByClassName("dot");
+
+                for (i = 0; i < slides.length; i++) {
+                    slides[i].style.display = "none";  
+                }
+
+                slideIndex++;
+
+                if (slideIndex > slides.length) {
+                    slideIndex = 1
+                }    
+
+                for (i = 0; i < dots.length; i++) {
+                    dots[i].className = dots[i].className.replace(" active", "");
+                }
+
+                slides[slideIndex-1].style.display = "block";  
+                dots[slideIndex-1].className += " active";
+                setTimeout(showSlides, 8000); // Change image every 2 seconds
+            }
+
+            */
+
+        </script>
+        
+        <!---------------------------------------------------------------------------------------------------------------->
+
+
+
+        <!---------------------------------------------------{ OTHERS }--------------------------------------------------->
+
+        <a id="button-login" th:href= "@{/login}"> <!-- The login button. -->
+            <i class="fa-solid fa-user"></i> <!-- User icon. -->
+        </a>
+
+        
+        <img id="main-logo" src="uefaemblem.png"> <!-- UEFA logo in the center of the main page. -->
+
+        <!---------------------------------------------------------------------------------------------------------------->
+
     </body>
 </html>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>Login</title>
+        <meta http-equiv="cache-control" charset="UTF-8" name="keywords" lang="es"></meta>
+        <link rel="stylesheet" th:href= "@{/login.css}">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" 
+            integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" 
+                crossorigin="anonymous" referrerpolicy="no-referrer" />
+    </head>
+    <body>
+        <div id="background"></div>
+
+        <div id="login-box">
+
+            <div id="top-area">
+
+                <img id="emblem" src="uefaemblemdark.png">
+                
+                <a id="close-button" th:href= "@{/}">
+                    <i class="fa-solid fa-x"></i>
+                </a>
+                
+            </div>
+
+
+            <form  th:action="@{/login}" th:object="${user}" method="post">     
+
+                <div id="info-box">
+                    <label for="user-input"><i class="fa-solid fa-user"></i></label>
+                    <input type="text" id="user-input" size="20" placeholder="Usuario / Email" 
+                        required th:field="*{userName}"></input>
+                </div>
+                
+                <div id="password-area">
+
+                    <div id="info-box">
+                        <label for="password-input"><i class="fa-solid fa-lock fa-shake"></i></label>
+                        <input type="password" id="password-input" size="20" placeholder="Contraseña" 
+                            required th:field="*{userPassword}"></input>
+                    </div>
+
+                    <input type="checkbox" onclick="myFunction()" id="password-see">
+                    <label for="password-see" id="password-see-box">
+                        <i class="fa-solid fa-eye-slash"></i>
+                    </label>
+
+                </div>
+
+                <input type="submit" id="login-input" value="Login"></input>
+
+            </form>
+
+            <label style="color: red" th:if="${error != null}" th:text="${error}"></label>
+
+            <div id="registration">
+                <label>¿No tienes una cuenta? <a th:href= "@{/register}">Regístrate</a></label>
+            </div>
+
+        </div>
+
+        <script>
+
+            function myFunction() {
+                var x = document.getElementById("password-input");
+                if (x.type === "password") {
+                    x.type = "text";
+                } else {
+                    x.type = "password";
+                }
+            }
+            
+        </script>
+    </body>
+</html>
