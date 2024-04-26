@@ -22,5 +22,6 @@ public class EncryptionService {
 
     public boolean match(String plainText, String encryptedText) {
         return plainText.equals(decrypt(encryptedText));
-    }
+    } 
+    
 }

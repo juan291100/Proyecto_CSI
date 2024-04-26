@@ -19,6 +19,10 @@ public class PlayersService {
         return this.pRepository.findById(id).get();
     }
 
+    public List<PlayersModel> getAllByTeamId(Long teamId){
+        return this.pRepository.findByTeamId(teamId);
+    }
+
     public PlayersModel savePlayer(PlayersModel pModel){
         return this.pRepository.save(pModel);
     }

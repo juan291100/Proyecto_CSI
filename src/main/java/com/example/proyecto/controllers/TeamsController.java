@@ -17,9 +17,9 @@ public class TeamsController {
 
     @Autowired TeamsService tService;
 
-    @GetMapping("/europeanTeams")
-    public String getAllTeams(Model model){
-        model.addAttribute("teams", tService.getAll());
+    @GetMapping("/europeanTeams/{leagueId}")
+    public String getAllTeamsByLeagueId(@PathVariable Long leagueId, Model model){
+        model.addAttribute("teams", tService.getAllByLeagueId(leagueId));
         return "europeanTeams";
     }
 

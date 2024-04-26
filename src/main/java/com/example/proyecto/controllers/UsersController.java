@@ -33,7 +33,7 @@ public class UsersController {
             model.addAttribute("error", "The username, email or password is incorrect.");
             return "login";
         }else{
-            return "redirect:/prueba";
+            return "redirect:/europeanLeagues";
         }
     }
 

@@ -7,12 +7,14 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Entity
 @Table(name = "europeanLeagues")
 @Getter
 @Setter
+@NoArgsConstructor
 public class LeaguesModel {
 
     @Id
@@ -28,10 +30,7 @@ public class LeaguesModel {
     @Column
     String leagueAssociation;
 
-    public LeaguesModel(String leagueName, String leagueCountry, String leagueAssociation) {
-        this.leagueName = leagueName;
-        this.leagueCountry = leagueCountry;
-        this.leagueAssociation = leagueAssociation;
-    }
-   
+    @Column
+    String leagueImagePath;
+
 }

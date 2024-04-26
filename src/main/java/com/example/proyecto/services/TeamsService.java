@@ -15,6 +15,10 @@ public class TeamsService {
         return this.tRepository.findAll();
     }
 
+    public List<TeamsModel> getAllByLeagueId(Long leagueId){
+        return this.tRepository.findByLeagueId(leagueId);
+    }
+
     public TeamsModel getById(Long id){
         return this.tRepository.findById(id).get();
     }

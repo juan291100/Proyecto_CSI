@@ -17,14 +17,14 @@ public class PlayersController {
 
     @Autowired PlayersService pService;
 
-    @GetMapping("/europeanPlayers")
-    public String getAllPlayers(Model model){
-        model.addAttribute("players", pService.getAll());
+    @GetMapping("/europeanPlayers/{teamId}")
+    public String getAllPlayersByTeamId(@PathVariable Long teamId, Model model){
+        model.addAttribute("players", pService.getAllByTeamId(teamId));
         return "europeanPlayers";
     }
 
     @PostMapping("/europeanPlayers")
-    public String savePlayer(@ModelAttribute("league") PlayersModel pModel) {
+    public String savePlayer(@ModelAttribute("player") PlayersModel pModel) {
         pService.savePlayer(pModel);
         return "redirect:/europeanPlayers";
     }
