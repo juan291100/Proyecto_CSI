@@ -5,7 +5,7 @@
 
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>League's Info</title>
+        <title>Team's Info</title>
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" 
             rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" 
                 crossorigin="anonymous">
@@ -16,20 +16,26 @@
 
         <br><div class="container" style="border: 2px solid black;border-radius: 15px;">
 
-            <br><h1 style="text-align: center;">League's Info</h1><br>
+            <br><h1 style="text-align: center;">Team's Info</h1><br>
 
-            <form th:action="@{/europeanLeagues/update/{leagueId}(leagueId=${league.leagueId})}" th:object="${league}" method="post">
+            <form th:action="@{/europeanTeams/{leagueId}/add(leagueId=${team.leagueId})}" th:object="${team}" method="post">
 
                 <div class="input-group mb-3">
-                    <input type="text" class="form-control" placeholder="League's Name"  th:field="*{leagueName}">
+                    <input type="text" class="form-control" placeholder="Team's Name"  th:field="*{teamName}">
                 </div>
 
                 <div class="input-group mb-3">
-                    <input type="text" class="form-control" placeholder="League's Country" th:field="*{leagueCountry}">
+                    <span class="input-group-text">Year of foundation</span>
+                    <input type="number" min="1800" max="1950" class="form-control" th:field="*{teamYear}">
                 </div>
 
                 <div class="input-group mb-3">
-                    <input type="text" class="form-control" placeholder="League's Association" th:field="*{leagueAssociation}">
+                    <input type="text" class="form-control" placeholder="Team's City" th:field="*{teamCity}">
+                </div>
+
+                <div class="input-group mb-3">
+                    <span class="input-group-text">Trophies</span>
+                    <input type="number" min="0" max="100" class="form-control" th:field="*{teamTrophies}">
                 </div>
 
                 <div class="input-group mb-3">

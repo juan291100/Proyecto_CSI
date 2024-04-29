@@ -36,22 +36,22 @@ public class LeaguesController {
         return "redirect:/europeanLeagues";
     }
 
-    @GetMapping("/europeanLeagues/update/{id}")
-    public String updateStudentForm(@PathVariable Long id,Model model){
-        model.addAttribute("league", lService.getById(id));
+    @GetMapping("/europeanLeagues/update/{leagueId}")
+    public String updateStudentForm(@PathVariable Long leagueId, Model model){
+        model.addAttribute("league", lService.getById(leagueId));
         return "updateLeague";
     }
 
-    @PostMapping("/europeanLeagues/update/{id}")
-    public String updateLeague(@PathVariable Long id, @ModelAttribute("league") LeaguesModel lModel){
-        lService.updateLeague(id, lModel);
+    @PostMapping("/europeanLeagues/update/{leagueId}")
+    public String updateLeague(@PathVariable Long leagueId, @ModelAttribute("league") LeaguesModel lModel){
+        lService.updateLeague(leagueId, lModel);
         return "redirect:/europeanLeagues";
     }
 
     @ResponseBody
-    @DeleteMapping("/europeanLeagues/delete/{id}")
-    public String deleteLeague(@PathVariable Long id){
-        lService.deleteLeague(id);
+    @DeleteMapping("/europeanLeagues/delete/{leagueId}")
+    public String deleteLeague(@PathVariable Long leagueId){
+        lService.deleteLeague(leagueId);
         return "";
     }
 

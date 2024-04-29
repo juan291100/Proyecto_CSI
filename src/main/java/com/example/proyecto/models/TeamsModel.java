@@ -38,5 +38,9 @@ public class TeamsModel {
 
     @Column
     String teamImagePath;
+
+    public TeamsModel(Long leagueId) {
+        this.leagueId = leagueId;
+    }
     
 }

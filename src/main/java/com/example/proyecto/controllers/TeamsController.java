@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import com.example.proyecto.models.TeamsModel;
 import com.example.proyecto.services.TeamsService;
 
@@ -20,25 +20,40 @@ public class TeamsController {
     @GetMapping("/europeanTeams/{leagueId}")
     public String getAllTeamsByLeagueId(@PathVariable Long leagueId, Model model){
         model.addAttribute("teams", tService.getAllByLeagueId(leagueId));
+        model.addAttribute("leagueId", leagueId);
         return "europeanTeams";
     }
 
-    @PostMapping("/europeanTeams")
+    @GetMapping("/europeanTeams/{leagueId}/add")
+    public String saveTeamForm(@PathVariable Long leagueId, Model model){
+        TeamsModel tModel = new TeamsModel(leagueId);
+        model.addAttribute("team", tModel);
+        return "addTeam";
+    }
+
+    @PostMapping("/europeanTeams/{leagueId}/add")
     public String saveTeam(@ModelAttribute("team") TeamsModel tModel) {
         tService.saveTeam(tModel);
-        return "redirect:/europeanTeams";
+        return "redirect:/europeanTeams/{leagueId}";
     }
 
-    @PutMapping("/europeanTeams/update/{id}")
-    public String updateTeam(@PathVariable Long id, @ModelAttribute("team") TeamsModel tModel){
-        tService.updateTeam(id, tModel);
-        return "redirect:/europeanTeams";
+    @GetMapping("/europeanTeams/{leagueId}/update/{teamId}")
+    public String updateTeamForm(@PathVariable Long teamId, Model model){
+        model.addAttribute("team", tService.getById(teamId));
+        return "updateTeam";
     }
 
-    @DeleteMapping("/europeanTeams/delete/{id}")
-    public String deleteTeam(@PathVariable Long id){
-        tService.deleteTeam(id);
-        return "redirect:/europeanTeams";
+    @PostMapping("/europeanTeams/{leagueId}/update/{teamId}")
+    public String updateTeam(@PathVariable Long teamId, @ModelAttribute("team") TeamsModel tModel){
+        tService.updateTeam(teamId, tModel);
+        return "redirect:/europeanTeams/{leagueId}";
+    }
+
+    @ResponseBody
+    @DeleteMapping("/europeanTeams/delete/{teamId}")
+    public String deleteTeam(@PathVariable Long teamId){
+        tService.deleteTeam(teamId);
+        return "";
     }
 
 }

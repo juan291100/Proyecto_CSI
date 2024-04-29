@@ -5,8 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>European Players</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" 
-            rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" 
-                crossorigin="anonymous">
+        rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" 
+            crossorigin="anonymous">
+    <script src="https://unpkg.com/htmx.org@1.9.11" 
+        integrity="sha384-0gxUXCCR8yv9FM2b+U3FDbsKthCI66oH5IA9fHppQq9DDMHuMauqq1ZHBpJxQ0J0" 
+            crossorigin="anonymous"></script>
 </head>
 <body>
 
@@ -43,21 +46,31 @@
 
             <tbody>
 
-                <tr th:each="player:${players}">
+                <tr class="line" th:each="player:${players}">
                     <td th:text="${player.playerName}"></td>
                     <td th:text="${player.playerLastName}"></td>
                     <td th:text="${player.playerAge}"></td> 
                     <td th:text="${player.playerPosition}"></td>
                     <td th:text="${player.playerSquadNumber}"></td>
                     <td>
-                        <a th:href="@{/europeanplayers/update/{id}(id=${player.playerId})}" class="btn btn-info" style="width: 48%;">Update</a>
-                        <a th:href="@{/europeanplayers/delete/{id}(id=${player.playerId})}" class="btn btn-danger" style="width: 48%;">Delete</a>
+                        <a th:href="@{/europeanPlayers/{teamId}/update/{playerId}(teamId=${player.teamId},playerId=${player.playerId})}" 
+                            class="btn btn-info" style="width: 48%;">Update</a>
+                        <a th:attr="hx-delete=@{/europeanPlayers/delete/{playerId}(playerId=${player.playerId})}" 
+                            hx-confirm="Are you sure you want to delete this row?" 
+                                hx-swap="outerHTML" hx-target="closest .line" class="btn btn-danger" 
+                                    style="width: 48%;">Delete</a>
                     </td>            
                 </tr>
 
             </tbody>
 
         </table>
+
+        <a th:href="@{/europeanPlayers/{teamId}/add(teamId=${teamId})}" class="form-control btn btn-dark">Add new Player</a>
+
+        <br><br>
+
+        <a th:href="@{/europeanPlayers/{teamId}/exportToPDF(teamId=${teamId})}" class="form-control btn btn-dark">Export Data to PDF</a>
 
     </div>
 

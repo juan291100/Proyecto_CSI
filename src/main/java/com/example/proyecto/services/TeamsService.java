@@ -29,7 +29,6 @@ public class TeamsService {
 
     public TeamsModel updateTeam(Long id, TeamsModel tRequest){
         TeamsModel tModel = tRepository.findById(id).get();
-        tModel.setLeagueId(tRequest.getLeagueId());
         tModel.setTeamName(tRequest.getTeamName());
         tModel.setTeamYear(tRequest.getTeamYear());
         tModel.setTeamCity(tRequest.getTeamCity());
