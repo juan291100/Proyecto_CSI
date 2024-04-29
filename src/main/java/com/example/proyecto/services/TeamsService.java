@@ -23,6 +23,10 @@ public class TeamsService {
         return this.tRepository.findById(id).get();
     }
 
+    public Long getLeagueIdbyId(Long id){
+        return this.getById(id).getLeagueId();
+    }
+
     public TeamsModel saveTeam(TeamsModel tModel){
         return this.tRepository.save(tModel);
     }

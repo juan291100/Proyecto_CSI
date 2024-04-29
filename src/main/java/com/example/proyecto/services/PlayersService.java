@@ -19,6 +19,15 @@ public class PlayersService {
         return this.pRepository.findById(id).get();
     }
 
+    public List<PlayersModel> searchPlayersString(Long id, String search){
+        return this.pRepository.findByTeamIdAndPlayerNameContainingOrTeamIdAndPlayerLastNameContainingOrTeamIdAndPlayerPositionContaining
+            (id, search, id, search, id, search);
+    }
+
+    public List<PlayersModel> searchPlayersInt(Long id, String search){
+        return this.pRepository.findByTeamIdAndPlayerAgeOrTeamIdAndPlayerSquadNumber(id, Integer.parseInt(search), id, Integer.parseInt(search));
+    }
+
     public List<PlayersModel> getAllByTeamId(Long teamId){
         return this.pRepository.findByTeamId(teamId);
     }

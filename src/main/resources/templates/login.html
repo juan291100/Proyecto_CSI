@@ -3,7 +3,7 @@
     <head>
         <title>Login</title>
         <meta http-equiv="cache-control" charset="UTF-8" name="keywords" lang="es"></meta>
-        <link rel="stylesheet" th:href= "@{/login.css}">
+        <link rel="stylesheet" th:href= "@{/css/login.css}">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" 
             integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" 
                 crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -15,7 +15,7 @@
 
             <div id="top-area">
 
-                <img id="emblem" src="uefaemblemdark.png">
+                <img id="emblem" th:src="@{/imagenesInicio/uefaemblemdark.png}">
                 
                 <a id="close-button" th:href= "@{/}">
                     <i class="fa-solid fa-x"></i>

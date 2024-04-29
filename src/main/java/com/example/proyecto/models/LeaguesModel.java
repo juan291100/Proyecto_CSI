@@ -33,4 +33,10 @@ public class LeaguesModel {
     @Column
     String leagueImagePath;
 
+    @Column
+    String leagueCountryShort;
+
+    @Column 
+    String leagueCountryFlagImagePath;
+
 }

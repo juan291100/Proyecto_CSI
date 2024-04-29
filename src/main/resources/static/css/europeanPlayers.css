@@ -1,0 +1,400 @@
+/*------------------------------------------------------------{ ALL }------------------------------------------------------------*/
+@import url('https://fonts.googleapis.com/css2?family=Changa:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bungee&display=swap');
+
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    font-family: 'Changa', sans-serif;
+}
+/*-------------------------------------------------------------------------------------------------------------------------------*/
+
+
+
+/*---------------------------------------------------------{ SIDE MENU }---------------------------------------------------------*/
+#wrapper{
+    position: relative;
+    height: 100%; /* Hace que el tamaño sea 100% de la pantalla. */
+    width: 330px;
+    z-index: 800;
+}
+
+#button{
+    display: none;
+}
+
+#button:checked ~ #button-menu{
+    left: 290px;
+}
+
+#button:checked ~ #button-menu i:before{
+    content: "\f00d";
+}
+
+#button:checked ~ #sidebar{
+    left: 0px;
+}
+
+#button:checked ~ #unclickable{
+    left: 270px;
+}
+
+#button-menu{
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    height: 45px;
+    width: 45px;
+    z-index: 900;
+    color: #333;
+    background-color: #f2f2f2;
+    border: 1px solid #333;
+    text-align: center;
+    line-height: 48px;
+    border-radius: 50px;
+    cursor: pointer;
+    font-size: 23px;
+    transition: all 0.3s ease;
+}
+
+#logo{
+    margin-top: 20px;
+    height: 70px;
+    width: 115x;
+}
+
+#sidebar{
+    position: fixed;
+    height: 100%;
+    width: 270px;
+    background-color: #404040;
+    overflow: hidden;
+    left: -270px;
+    transition: all 0.3 ease;
+}
+
+#unclickable{
+    position: fixed;
+    overflow: hidden;
+    left: -1500px;
+    height: 100%;
+    width: 1500px;
+    background-color: #000;
+    opacity: 60%;
+    z-index: 600;
+}
+
+#title{
+    color: #f2f2f2;
+    font-size: 25px;
+    font-weight: 600;
+    line-height: 65px;
+    text-align: center;
+    background-color: #404040;
+}
+
+#options{
+    position: relative;
+    background-color: #404040;
+    height: 100%;
+    width: 100%;
+    list-style: none;
+}
+
+#sidebar li a{
+    color: #fff;
+}
+
+#options li{
+    padding-left: 40px;
+    line-height: 70px;
+    transition: all 0.3s ease;
+}
+
+#options li:hover{
+    border-top: 1px solid transparent;
+    border-bottom: 1px solid transparent;
+    box-shadow: 0px 0px 10px 3px #222;
+}
+
+#options li a{
+    color: #fff;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: 500;
+    height: 100%;
+    width: 100%;
+    display: block;
+}
+
+#options li a i{
+    margin-right: 20px;
+}
+
+#icons{
+    height: 40px;
+    width: 100%;
+    position: absolute;
+    bottom: 140px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#icons a{
+    margin: 0px 5px;
+    color: #f2f2f2;
+    display: block;
+    height: 40px;
+    width: 40px;
+    background-color: #4a4a4a;
+    border: 1px solid #383838;
+    text-align: center;
+    line-height: 40px;
+    border-radius: 5px;
+    transition: all 0.3 ease;
+}
+
+#icons a:hover{
+    background-color: #404040;
+}
+/*-------------------------------------------------------------------------------------------------------------------------------*/
+
+
+
+/*----------------------------------------------------------{ OTHERS }-----------------------------------------------------------*/
+#button-login{
+    position: fixed;
+    top: 20px;
+    right: 1.5%;
+    height: 45px;
+    width: 45px;
+    z-index: 900;
+    color: #333;
+    background-color: #f2f2f2;
+    border: 1px solid #333;
+    text-align: center;
+    line-height: 47px;
+    border-radius: 50px;
+    cursor: pointer;
+    font-size: 23px;
+}
+
+#main-logo{
+    position: absolute;
+    top: 20px;
+    left: 45%;
+    height: 100px;
+    width: 150px;
+    z-index: 5;
+}
+
+#background{
+    width: 100%;
+    height: 600px;
+}
+
+#team-box{
+    position: absolute;
+    display: flex;
+    align-items: center;
+    top: 200px;
+    margin-left: 7.5%;
+}
+
+#team{
+    width: 250px;
+    left: 8%;
+    float: left;
+}
+
+#team-name{
+    font-size: 60px;
+    color: white;
+    font-family: 'Changa', sans-serif;   
+}
+
+#country-box{
+    float: left;
+    margin-left: 35px;
+}
+
+#flag{
+    border: 2px solid #333;
+    border-radius: 50px;
+    height: 30px;
+    width: 30px;
+}
+
+#country{
+    color: #b9b9b9;
+    font-size: 20px;
+}
+/*-------------------------------------------------------------------------------------------------------------------------------*/
+
+
+
+/*-----------------------------------------------------------{ TABLE }-----------------------------------------------------------*/
+
+#table-top i{
+    color: #fff;
+    cursor: pointer;
+}
+
+#table-top label{
+    margin-right: 10px;
+}
+
+.beat{
+    transition: transform 0.2s ease-in-out; /* Apply transition for smooth animation */
+}
+  
+.beat:hover {
+    animation: heartbeat 1s infinite; /* Apply heartbeat animation on hover */
+}
+  
+@keyframes heartbeat {
+
+    0%{
+      transform: scale(1);
+    }
+
+    50%{
+      transform: scale(1.2);
+    }
+
+    100%{
+      transform: scale(1);
+    } 
+}
+
+
+#line{
+    position: absolute;
+    top: 1215px;
+    width: 30px;
+    height: 5px;
+    background-color: #000;
+    transition: width 0.5s ease, left 0.5s ease;
+    margin-bottom: 10px;
+    transform: translateX(-53.5%);
+}
+
+#dowload-table{
+    position: absolute;
+    top: 1170px;
+    right: 8%;
+    height: 45px;
+    width: 45px;
+    z-index: 900;
+    color: #f2f2f2;
+    background-color: #333;
+    text-align: center;
+    line-height: 47px;
+    border-radius: 50px;
+    cursor: pointer;
+    font-size: 23px;
+
+}
+/*-------------------------------------------------------------------------------------------------------------------------------*/
+
+
+
+/*--------------------------------------------------------{ INFORMATION }--------------------------------------------------------*/
+#soccer-history{
+    text-align: center;
+    color: #fff;
+    font-size: 30px;
+    margin-top: -50px;
+}
+
+#three-boxes{
+    display: flex;
+    padding-bottom: 100px;
+    margin-left: 10%;
+}
+
+#boxes{
+    position: relative;
+    height: 320px;
+    width: 350px;
+    margin-left: 3%;
+    z-index: 100;
+    margin-top: 20px;
+    background-color: #fff;
+    border-radius: 30px;
+}
+
+#image{
+    position: relative;
+    width: 350px;
+    height: 200px;
+}
+
+#text-box{
+    text-align: center;    
+}
+
+#text-box h3{
+    margin-top: 20px;
+    font-family: 'Bungee', sans-serif; 
+    font-size: 20px;
+}
+
+#info{
+    background-color: #c09236;
+    border: 1px solid transparent;
+    border-radius: 20px;
+    width: 150px;
+    height: 40px;
+    color: #fff;
+    font-size: 20px;
+    line-height: 38px;
+
+}
+/*-------------------------------------------------------------------------------------------------------------------------------*/
+
+
+
+/*--------------------------------------------------------{ BOTTOM AREA }--------------------------------------------------------*/
+#mini-emblem{
+    margin-top: 10px;
+    width: 35px;
+}
+
+#project{
+    font-size: 40px;
+    margin-top: 20px;
+}
+
+#project-area{
+    background-color: #000;
+    color: white;
+    width: 100%;
+    height: 100px;
+    display: flex;
+}
+
+#mini-logo{
+    margin-top: 10px;
+    height: 80px;
+    width: 115px;
+}
+
+#project-area label{
+    margin-top: 35px;
+    margin-left: 5%;
+    font-size: 20px;
+}
+
+#lasalle{
+    height: 80px;
+    width: 145px;
+    background-color: #fff;
+    border: 3px solid #e5ac3b;
+    border-radius: 20px;
+    margin-left: 30px;
+    margin-top: 10px;
+}
+/*-------------------------------------------------------------------------------------------------------------------------------*/

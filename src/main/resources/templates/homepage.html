@@ -3,7 +3,7 @@
     <head>
         <title>UEFA</title>
         <meta http-equiv="cache-control" charset="UTF-8" name="keywords" lang="es"></meta>
-        <link rel="stylesheet" th:href= "@{/homepage.css}">
+        <link rel="stylesheet" th:href= "@{/css/homepage.css}">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" 
             integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" 
                 crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -22,7 +22,7 @@
             <nav id="sidebar"> <!-- Contains everything in the sidebar. -->
 
                 <div id="title"> <!-- Box wich contains the UEFA logo. -->
-                    <img id="logo" src="uefaemblem.png"> <!-- The UEFA logo. -->
+                    <img id="logo" th:src="@{/imagenesInicio/uefaemblem.png}"> <!-- The UEFA logo. -->
                 </div>
 
                 <ul id="options"> <!-- Contains all the options that you can choose in the sidebar. -->
@@ -61,21 +61,21 @@
         <div class="slideshow-container"> <!-- Area wich contains all the images and their text. -->
 
             <div class="slides"> <!-- Slides area wich contains the first image and your text. -->
-                <img class="images" src="background3.jpg"> <!-- First background image. -->
+                <img class="images" th:src="@{/imagenesInicio/background3.jpg}"> <!-- First background image. -->
                 <div class="sliders-text"> <!-- Box wich contains this image text. -->                   
                     Estoy viviendo un sueño del que no quiero despertar nunca
                 </div>
             </div>
         
             <div class="slides"> <!-- Slides area wich contains the second image and your text. -->
-                <img class="images" src="background2.jpg"> <!-- Second background image. -->
+                <img class="images" th:src="@{/imagenesInicio/background2.jpg}"> <!-- Second background image. -->
                 <div class="sliders-text"> <!-- Box wich contains this image text. -->
                     Reconocer la derrota es la primera etapa de la victoria
                 </div>
             </div>
         
             <div class="slides"> <!-- Slides area wich contains the third image and your text. -->     
-                <img class="images" src="background1.jpg"> <!-- Third background image. -->
+                <img class="images" th:src="@{/imagenesInicio/background1.jpg}"> <!-- Third background image. -->
                 <div class="sliders-text"> <!-- Box wich contains this image text. -->                 
                     En el campo todos somos iguales cuando empieza el partido                
                 </div>
@@ -147,7 +147,7 @@
             <i class="fa-solid fa-user"></i> <!-- User icon. -->
         </a>
 
-        <img id="main-logo" src="uefaemblem.png"> <!-- UEFA logo in the center of the main page. -->
+        <img id="main-logo" th:src="@{/imagenesInicio/uefaemblem.png}"> <!-- UEFA logo in the center of the main page. -->
 
         <!---------------------------------------------------------------------------------------------------------------->
 
