@@ -10,16 +10,19 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import com.example.proyecto.models.TeamsModel;
+import com.example.proyecto.services.LeaguesService;
 import com.example.proyecto.services.TeamsService;
 
 @Controller
 public class TeamsController {
 
     @Autowired TeamsService tService;
+    @Autowired LeaguesService lService;
 
     @GetMapping("/europeanTeams/{leagueId}")
     public String getAllTeamsByLeagueId(@PathVariable Long leagueId, Model model){
         model.addAttribute("teams", tService.getAllByLeagueId(leagueId));
+        model.addAttribute("league", lService.getById(leagueId));
         model.addAttribute("leagueId", leagueId);
         return "europeanTeams";
     }

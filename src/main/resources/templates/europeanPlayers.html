@@ -34,7 +34,7 @@
                 <img id="logo" th:src="@{/imagenesInicio/uefaemblem.png}"> <!-- The UEFA logo. -->
             </div>
 
-            <ul id="options"> <!-- Contains all the options that you can choose in the sidebar. -->
+            <div id="options"> <!-- Contains all the options that you can choose in the sidebar. -->
 
                 <!-- The "#" is where you will put the direction you want this button to take you. -->
                 <!-- The "fas fa-(something)" is the icon from font awesome. -->
@@ -52,7 +52,7 @@
                     <a href="#"><i class="fa-brands fa-github"></i></a> <!-- Github button and icon. -->
                     <a href="#"><i class="fa-brands fa-youtube"></i></a> <!-- Youtube button and icon. -->
                 </div>
-            </ul>
+            </div>
         </nav>
 
         <div id="unclickable"></div> <!-- The unclickable black area that appears when the sidebar is open. -->
@@ -95,7 +95,7 @@
     <div style="background-color: black;">
         <div id="soccer-history">
             <img id="mini-emblem" th:src="@{${team.teamImagePath}}"><br>
-            <label>INFORMACIONES DEL EQUIPO</label>
+            <label>INFORMACIÓN DEL EQUIPO</label>
         </div>
 
         <div id="three-boxes">
@@ -212,6 +212,8 @@
 
         </div>
 
+        <br>
+
         <a th:href="@{/europeanPlayers/{teamId}/add(teamId=${teamId})}" class="form-control btn btn-dark">Añadir un Nuevo Jugador</a>
 
         <br>
@@ -256,7 +258,7 @@
 
         <label>Guillermo Sierra</label>
 
-        <img id="lasalle" th:src="@{/imagenesJugadores/lasalle.png}">
+        <img id="lasalle" th:src="@{/imagenesInicio/lasalle.png}">
     </div>
 
     <!---------------------------------------------------------------------------------------------------------------->
