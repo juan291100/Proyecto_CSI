@@ -15,6 +15,10 @@ import lombok.Setter;
 @Getter
 @Setter
 @NoArgsConstructor
+/**
+ * La clase UsersModel en una entidad la cual se encarga de representar 
+ * los datos referentes a los usuarios de la base de datos.
+ */
 public class UsersModel {
 
     @Id

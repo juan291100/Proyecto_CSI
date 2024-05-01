@@ -15,6 +15,10 @@ import lombok.Setter;
 @Getter
 @Setter
 @NoArgsConstructor
+/**
+ * La clase TeamsModel en una entidad la cual se encarga de representar  
+ * los datos referentes a los equipos de fútbol de la base de datos.
+ */
 public class TeamsModel {
 
     @Id

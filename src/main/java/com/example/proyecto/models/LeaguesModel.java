@@ -15,6 +15,10 @@ import lombok.Setter;
 @Getter
 @Setter
 @NoArgsConstructor
+/**
+ * La clase LeaguesModel en una entidad la cual se encarga de representar  
+ * los datos referentes a las ligas de fútbol de la base de datos.
+ */
 public class LeaguesModel {
 
     @Id
