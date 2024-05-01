@@ -1,7 +1,18 @@
 package com.example.proyecto.controllers;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
+import java.util.Scanner;
+import java.util.regex.Pattern;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.io.InputStreamResource;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -11,6 +22,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.multipart.MultipartFile;
 import com.example.proyecto.impresion.OpenPDF;
 import com.example.proyecto.models.PlayersModel;
 import com.example.proyecto.services.LeaguesService;
@@ -31,7 +43,7 @@ public class PlayersController {
         model.addAttribute("team", tService.getById(teamId));
         model.addAttribute("league", lService.getById(tService.getLeagueIdbyId(teamId)));
         model.addAttribute("teamId", teamId);
-        return "europeanPlayers";
+        return "europeanPlayers/europeanPlayers";
     }
 
     @PostMapping("/europeanPlayers/{teamId}/searchPlayers")
@@ -41,14 +53,14 @@ public class PlayersController {
         } catch (NumberFormatException e) {
             model.addAttribute("players", pService.searchPlayersString(teamId, search));
         }
-        return "europeanPlayers :: search-results";
+        return "europeanPlayers/europeanPlayers :: updateTable";
     } 
 
     @GetMapping("/europeanPlayers/{teamId}/add")
     public String savePlayerForm(@PathVariable Long teamId, Model model){
         PlayersModel pModel = new PlayersModel(teamId);
         model.addAttribute("player", pModel);
-        return "addPlayer";
+        return "europeanPlayers/addPlayer";
     }
 
     @PostMapping("/europeanPlayers/{teamId}/add")
@@ -60,7 +72,7 @@ public class PlayersController {
     @GetMapping("/europeanPlayers/{teamId}/update/{playerId}")
     public String updatePlayerForm(@PathVariable Long playerId, Model model){
         model.addAttribute("player", pService.getById(playerId));
-        return "updatePlayer";
+        return "europeanPlayers/updatePlayer";
     }
 
     @PostMapping("/europeanPlayers/{teamId}/update/{playerId}")
@@ -82,4 +94,51 @@ public class PlayersController {
         openPDF.exportToPdf(pService.getAllByTeamId(teamId), response);
     }
 
+    @GetMapping("/europeanPlayers/{teamId}/exportToTxt")
+    public ResponseEntity<InputStreamResource> exportToTxt(@PathVariable Long teamId, HttpServletResponse response) 
+            throws IOException{
+
+        File fileToExport = new File("exportarListaJugadores.txt");
+        fileToExport.createNewFile();
+        fileToExport.deleteOnExit();
+        FileWriter fileWriter = new FileWriter(fileToExport);
+        for(PlayersModel pModel : pService.getAllByTeamId(teamId)){
+            fileWriter.write(pModel.getPlayerName() + " || " + pModel.getPlayerLastName() + 
+                " || " + pModel.getPlayerAge() + " || " + pModel.getPlayerPosition() + 
+                    " || " + pModel.getPlayerSquadNumber() + "\n");
+        }
+        fileWriter.close();
+		InputStreamResource inputStreamResource = new InputStreamResource(new FileInputStream(fileToExport));
+		return ResponseEntity.ok()
+				.header(HttpHeaders.CONTENT_DISPOSITION, "attachment;filename=" + fileToExport.getName())
+				.contentType(MediaType.TEXT_PLAIN)
+				.contentLength(fileToExport.length())
+				.body(inputStreamResource);
+
+    }
+
+    @PostMapping("/europeanPlayers/{teamId}/importFromTxt")
+    public String importFromTxt(@PathVariable Long teamId, @RequestParam("file") MultipartFile mFile, Model model) throws IOException {
+
+        File fileToImport = new File("importarListaJugadores.txt");
+        fileToImport.createNewFile();
+        fileToImport.deleteOnExit();
+        FileOutputStream fos = new FileOutputStream(fileToImport); 
+        fos.write(mFile.getBytes());
+        FileReader fileReader = new FileReader(fileToImport);
+        Scanner scanner = new Scanner(fileReader);
+        while (scanner.hasNextLine()) {
+            String data = scanner.nextLine();
+            String separator = Pattern.quote(" || ");
+            String[] data_split = data.split(separator);
+            PlayersModel pModel = new PlayersModel(teamId, data_split[0], data_split[1], Integer.parseInt(data_split[2]), 
+                data_split[3], Integer.parseInt(data_split[4]));
+            pService.savePlayer(pModel);
+        }
+        fos.close();
+        scanner.close();
+        model.addAttribute("players", pService.getAllByTeamId(teamId));
+        return "europeanPlayers/europeanPlayers :: updateTable";
+
+    }
 }

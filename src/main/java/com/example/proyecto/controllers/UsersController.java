@@ -14,16 +14,11 @@ public class UsersController {
 
     @Autowired UsersService uService;
 
-    @GetMapping("/prueba")
-    public String prueba(){
-        return "prueba";
-    }
-
     @GetMapping("/login")
     public String login(Model model){
         UsersModel uModel = new UsersModel();
         model.addAttribute("user", uModel);
-        return "login";
+        return "home/login";
     }
 
     @PostMapping("/login")
@@ -31,7 +26,7 @@ public class UsersController {
         uModel.setUserEmail(uModel.getUserName());
         if(uService.validateUser(uModel) == null){
             model.addAttribute("error", "The username, email or password is incorrect.");
-            return "login";
+            return "home/login";
         }else{
             return "redirect:/europeanLeagues";
         }
@@ -41,14 +36,14 @@ public class UsersController {
     public String register(Model model){
         UsersModel uModel = new UsersModel();
         model.addAttribute("user", uModel);
-        return "register";
+        return "home/register";
     }
 
     @PostMapping("/register")
     public String addUser(@ModelAttribute("user") UsersModel uModel, Model model){
         if(uService.saveUser(uModel) == null){
             model.addAttribute("error", "The username or email is already in use.");
-            return "register";
+            return "home/register";
         }else{
             return "redirect:/login";
         }

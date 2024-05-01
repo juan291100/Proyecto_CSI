@@ -1,0 +1,15 @@
+Karim || Benzema || 34 || Forward || 9
+Sergio || Ramos || 35 || Defender || 4
+Toni || Kroos || 32 || Midfielder || 8
+Casemiro || Silva || 29 || Midfielder || 14
+Vinicius || Junior || 21 || Forward || 20
+Dani || Carvajal || 30 || Defender || 2
+Eden || Hazard || 30 || Forward || 7
+Marco || Asensio || 25 || Forward || 11
+Ferland || Mendy || 26 || Defender || 23
+Rodrygo || Goes || 20 || Forward || 16
+Thibaut || Courtois || 29 || Goalkeeper || 1
+Raphael || Varane || 28 || Defender || 5
+Lucas || Vázquez || 29 || Forward || 17
+Isco || Alarcón || 29 || Midfielder || 22
+Federico || Valverde || 23 || Midfielder || 15

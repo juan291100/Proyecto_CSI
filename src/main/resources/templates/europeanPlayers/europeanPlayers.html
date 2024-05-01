@@ -39,18 +39,18 @@
                 <!-- The "#" is where you will put the direction you want this button to take you. -->
                 <!-- The "fas fa-(something)" is the icon from font awesome. -->
 
-                <li><a href="#"><i class="fa-solid fa-house"></i>Home</a></li> <!-- Home "button" with its icon. -->
-                <li><a href="#"><i class="fa-solid fa-address-book"></i>Clients</a></li> <!-- Clients "button" with its icon. -->
-                <li><a href="#"><i class="fa-solid fa-gear"></i>Settings</a></li> <!-- Settings "button" with its icon. -->
-                <li><a href="#"><i class="fa-solid fa-bars-staggered"></i>Features</a></li> <!-- Features "button" with its icon. -->
-                <li><a href="#"><i class="fa-solid fa-user"></i>About Us</a></li> <!-- About Us "button" with its icon. -->
-                <li><a href="#"><i class="fa-solid fa-envelope"></i>Contact Us</a></li> <!-- Contact Us "button" with its icon. -->
+                <li><a th:href= "@{/}"><i class="fa-solid fa-house"></i></i>Inicio</a></li> <!-- Home "button" with its icon. -->
+                <li><a th:href="@{/login}"><i class="fa-solid fa-address-book"></i>Iniciar Sesión</a></li> <!-- Clients "button" with its icon. -->
+                <li><a href="#"><i class="fa-solid fa-gear"></i>Ajustes</a></li> <!-- Settings "button" with its icon. -->
+                <li><a href="#"><i class="fa-solid fa-bars-staggered"></i>Características</a></li> <!-- Features "button" with its icon. -->
+                <li><a href="#"><i class="fa-solid fa-user"></i>Sobre nosostros</a></li> <!-- About Us "button" with its icon. -->
+                <li><a href="#"><i class="fa-solid fa-envelope"></i>Contáctanos</a></li> <!-- Contact Us "button" with its icon. -->
 
                 <div id="icons"> <!-- Contains the buttons that will redirect you to his icon page. -->
-                    <a href="#"><i class="fa-brands fa-facebook"></i></a> <!-- Facebook button and icon. -->
-                    <a href="#"><i class="fa-brands fa-twitter"></i></a> <!-- Twitter button and icon. -->
-                    <a href="#"><i class="fa-brands fa-github"></i></a> <!-- Github button and icon. -->
-                    <a href="#"><i class="fa-brands fa-youtube"></i></a> <!-- Youtube button and icon. -->
+                    <a href="https://www.facebook.com/lasallesantoangelzaragoza/?locale=es_ES"><i class="fa-brands fa-facebook"></i></a> <!-- Facebook button and icon. -->
+                    <a href="https://twitter.com/salleSAZgz"><i class="fa-brands fa-twitter"></i></a> <!-- Twitter button and icon. -->
+                    <a href="https://github.com/juan291100/Proyecto_CSI"><i class="fa-brands fa-github"></i></a> <!-- Github button and icon. -->
+                    <a href="https://www.instagram.com/lasallesantoangelzaragoza/?hl=es"><i class="fa-brands fa-instagram"></i></a> <!-- Instagram button and icon. -->
                 </div>
             </div>
         </nav>
@@ -154,12 +154,12 @@
             <input type="search" name="searchData" 
                 th:attr="hx-post=@{/europeanPlayers/{teamId}/searchPlayers(teamId=${teamId})}" 
                     hx-trigger="input changed delay:200ms, search" 
-                        hx-target=".search-results" class="form-control" placeholder="Search a Player">
+                        hx-target=".updateTable" class="form-control" placeholder="Search a Player">
         </div>
 
         <br>
 
-        <div th:fragment="search-results" class="search-results">
+        <div th:fragment="updateTable" class="updateTable">
 
             <table class="table table-striped" style="vertical-align: middle;">
 
@@ -216,6 +216,20 @@
 
         <a th:href="@{/europeanPlayers/{teamId}/add(teamId=${teamId})}" class="form-control btn btn-dark">Añadir un Nuevo Jugador</a>
 
+        <br><br>
+
+        <form th:attr="hx-post=@{/europeanPlayers/{teamId}/importFromTxt(teamId=${teamId})}" 
+            hx-trigger="submit" hx-swap="outerHTML" hx-target=".updateTable" 
+                enctype="multipart/form-data">
+            <div class="mb-3">
+                <input class="form-control" type="file" name="file"/>
+                <input type="submit" class="form-control" value="Importar datos" style="border-color: black;border-width: 2px;"/>
+                <a th:href="@{/europeanPlayers/{teamId}/exportToTxt(teamId=${teamId})}" 
+                    class="form-control btn btn-dark">Exportar datos</a>
+            </div>
+        </form>
+
+        
         <br>
 
     </div>

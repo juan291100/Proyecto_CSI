@@ -43,4 +43,14 @@ public class PlayersModel {
         this.teamId = teamId;
     }
 
+    public PlayersModel(Long teamId, String playerName, String playerLastName, int playerAge, String playerPosition,
+            int playerSquadNumber) {
+        this.teamId = teamId;
+        this.playerName = playerName;
+        this.playerLastName = playerLastName;
+        this.playerAge = playerAge;
+        this.playerPosition = playerPosition;
+        this.playerSquadNumber = playerSquadNumber;
+        }
+
 }

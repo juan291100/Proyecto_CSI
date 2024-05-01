@@ -20,14 +20,14 @@ public class LeaguesController {
     @GetMapping("/europeanLeagues")
     public String getAllLeagues(Model model){
         model.addAttribute("leagues", lService.getAll());
-        return "europeanLeagues";
+        return "europeanLeagues/europeanLeagues";
     }
 
     @GetMapping("/europeanLeagues/add")
     public String saveLeagueForm(Model model){
         LeaguesModel lModel = new LeaguesModel();
         model.addAttribute("league", lModel);
-        return "addLeague";
+        return "europeanLeagues/addLeague";
     }
 
     @PostMapping("/europeanLeagues/add")
@@ -39,7 +39,7 @@ public class LeaguesController {
     @GetMapping("/europeanLeagues/update/{leagueId}")
     public String updateStudentForm(@PathVariable Long leagueId, Model model){
         model.addAttribute("league", lService.getById(leagueId));
-        return "updateLeague";
+        return "europeanLeagues/updateLeague";
     }
 
     @PostMapping("/europeanLeagues/update/{leagueId}")

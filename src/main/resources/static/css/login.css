@@ -13,11 +13,14 @@
 /*-----------------------------------------------------------{ LOGIN }-----------------------------------------------------------*/
 #background{
     position: fixed;
-    background-color: #000;
-    opacity: 60%;
     height: 100%;
     width: 100%;
     z-index: 1;
+}
+
+#background-image{
+    height: 100%;
+    width: 100%;
 }
 
 #login-box{

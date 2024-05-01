@@ -39,18 +39,18 @@
                 <!-- The "#" is where you will put the direction you want this button to take you. -->
                 <!-- The "fas fa-(something)" is the icon from font awesome. -->
 
-                <li><a th:href= "@{/}"><i class="fa-solid fa-house"></i></i>Home</a></li> <!-- Home "button" with its icon. -->
-                <li><a href="#"><i class="fa-solid fa-address-book"></i>Clients</a></li> <!-- Clients "button" with its icon. -->
-                <li><a href="#"><i class="fa-solid fa-gear"></i>Settings</a></li> <!-- Settings "button" with its icon. -->
-                <li><a href="#"><i class="fa-solid fa-bars-staggered"></i>Features</a></li> <!-- Features "button" with its icon. -->
-                <li><a href="#"><i class="fa-solid fa-user"></i>About Us</a></li> <!-- About Us "button" with its icon. -->
-                <li><a href="#"><i class="fa-solid fa-envelope"></i>Contact Us</a></li> <!-- Contact Us "button" with its icon. -->
+                <li><a th:href= "@{/}"><i class="fa-solid fa-house"></i></i>Inicio</a></li> <!-- Home "button" with its icon. -->
+                    <li><a th:href="@{/login}"><i class="fa-solid fa-address-book"></i>Iniciar Sesión</a></li> <!-- Clients "button" with its icon. -->
+                    <li><a href="#"><i class="fa-solid fa-gear"></i>Ajustes</a></li> <!-- Settings "button" with its icon. -->
+                    <li><a href="#"><i class="fa-solid fa-bars-staggered"></i>Características</a></li> <!-- Features "button" with its icon. -->
+                    <li><a href="#"><i class="fa-solid fa-user"></i>Sobre nosostros</a></li> <!-- About Us "button" with its icon. -->
+                    <li><a href="#"><i class="fa-solid fa-envelope"></i>Contáctanos</a></li> <!-- Contact Us "button" with its icon. -->
 
                 <div id="icons"> <!-- Contains the buttons that will redirect you to his icon page. -->
-                    <a href="#"><i class="fa-brands fa-facebook"></i></a> <!-- Facebook button and icon. -->
-                    <a href="#"><i class="fa-brands fa-twitter"></i></a> <!-- Twitter button and icon. -->
+                    <a href="https://www.facebook.com/lasallesantoangelzaragoza/?locale=es_ES"><i class="fa-brands fa-facebook"></i></a> <!-- Facebook button and icon. -->
+                    <a href="https://twitter.com/salleSAZgz"><i class="fa-brands fa-twitter"></i></a> <!-- Twitter button and icon. -->
                     <a href="https://github.com/juan291100/Proyecto_CSI"><i class="fa-brands fa-github"></i></a> <!-- Github button and icon. -->
-                    <a href="#"><i class="fa-brands fa-youtube"></i></a> <!-- Youtube button and icon. -->
+                    <a href="https://www.instagram.com/lasallesantoangelzaragoza/?hl=es"><i class="fa-brands fa-instagram"></i></a> <!-- Instagram button and icon. -->
                 </div>
             </div>
         </nav>
@@ -65,9 +65,11 @@
 
     <!---------------------------------------------------{ OTHERS }--------------------------------------------------->
 
-    <label id="button-back"> <!-- The login button. -->
-        <i class="fa-solid fa-arrow-left"></i> <!-- User icon. -->
-    </label>
+    <a th:href= "@{/europeanLeagues}">
+        <label id="button-back"> <!-- The login button. -->
+            <i class="fa-solid fa-arrow-left"></i> <!-- User icon. -->
+        </label>
+    </a>
 
     <div id="logo-box">
         <img id="main-logo" th:src="@{/imagenesInicio/uefaemblem.png}"> <!-- UEFA logo in the center of the main page. -->
@@ -144,22 +146,22 @@
 
                 <tr class="table table-dark">
                     <th>
-                        Name
+                        Nombre
                     </th>
                     <th>
-                        Year of foundation
+                        Año de fundación
                     </th>
                     <th>
-                        City
+                        Ciudad
                     </th>
                     <th>
-                        Throphies
+                        Trofeos
                     </th>
                     <th>
                         Logo
                     </th>
                     <th>
-                        Action
+                        Acción
                     </th>
                 </tr>
 
@@ -190,15 +192,11 @@
 
         </table>
 
-        <a th:href="@{/europeanTeams/{leagueId}/add(leagueId=${leagueId})}" class="form-control btn btn-dark">Add new Team</a>
+        <a th:href="@{/europeanTeams/{leagueId}/add(leagueId=${leagueId})}" class="form-control btn btn-dark">Añadir un nuevo equipo</a>
 
     </div>
 
 </div>
-     
-<label id="dowload-table">
-    <dfn title="Exportar la tabla a PDF"><i class="fa-solid fa-download"></i></dfn>
-</label>
 
 <script>
     window.addEventListener('scroll', function() {

@@ -24,14 +24,14 @@ public class TeamsController {
         model.addAttribute("teams", tService.getAllByLeagueId(leagueId));
         model.addAttribute("league", lService.getById(leagueId));
         model.addAttribute("leagueId", leagueId);
-        return "europeanTeams";
+        return "europeanTeams/europeanTeams";
     }
 
     @GetMapping("/europeanTeams/{leagueId}/add")
     public String saveTeamForm(@PathVariable Long leagueId, Model model){
         TeamsModel tModel = new TeamsModel(leagueId);
         model.addAttribute("team", tModel);
-        return "addTeam";
+        return "europeanTeams/addTeam";
     }
 
     @PostMapping("/europeanTeams/{leagueId}/add")
@@ -43,7 +43,7 @@ public class TeamsController {
     @GetMapping("/europeanTeams/{leagueId}/update/{teamId}")
     public String updateTeamForm(@PathVariable Long teamId, Model model){
         model.addAttribute("team", tService.getById(teamId));
-        return "updateTeam";
+        return "europeanTeams/updateTeam";
     }
 
     @PostMapping("/europeanTeams/{leagueId}/update/{teamId}")

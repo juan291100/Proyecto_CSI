@@ -26,12 +26,9 @@ public class OpenPDF {
         DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd_HH-mm-ss");
         String timeStamp = dateFormat.format(new Date());
         String fileName = prefix + timeStamp + extension;
-
         response.setContentType(contentType);
-
         String headerKey = "Content-Disposition";
         String headerValue = "attachment; filename = " + fileName;
-
         response.setHeader(headerKey, headerValue);
 
     }
@@ -39,27 +36,20 @@ public class OpenPDF {
     public void exportToPdf(List<PlayersModel> playerList, HttpServletResponse response) throws DocumentException, IOException{
 
         setResponseHeader(response, "application/pdf", ".pdf", "Player's List_");
-
         Document document = new Document(PageSize.A4);
         PdfWriter.getInstance(document, response.getOutputStream());
-        
         document.open();
-
         Font font = FontFactory.getFont(FontFactory.HELVETICA_BOLD);
         font.setSize(18);
         font.setColor(Color.BLACK);
         Paragraph paragraph = new Paragraph("List of Players", font);
         paragraph.setAlignment(Paragraph.ALIGN_CENTER);
-
         document.add(paragraph);
-
         PdfPTable table = new PdfPTable(5);
         table.setWidthPercentage(100f);
         table.setSpacingBefore(10);
-
         writePlayerheader(table);
         writePlayerData(table, playerList);
-
         document.add(table);
         document.close();
 
@@ -70,10 +60,8 @@ public class OpenPDF {
         PdfPCell cell = new PdfPCell();
         cell.setBackgroundColor(Color.ORANGE);
         cell.setPadding(5);
-        
         Font font = FontFactory.getFont(FontFactory.HELVETICA_BOLD);
         font.setColor(Color.WHITE);
-
         cell.setPhrase(new Phrase("Player's Name", font));
         table.addCell(cell);
         cell.setPhrase(new Phrase("Player's Last Name", font));
@@ -88,6 +76,7 @@ public class OpenPDF {
     }
 
     private void writePlayerData(PdfPTable table, List<PlayersModel> playerList){
+
         for(PlayersModel p : playerList){
             table.addCell(p.getPlayerName());
             table.addCell(p.getPlayerLastName());
@@ -95,6 +84,7 @@ public class OpenPDF {
             table.addCell(p.getPlayerPosition());
             table.addCell(String.valueOf(p.getPlayerSquadNumber()));
         }
+
     }
 
 }

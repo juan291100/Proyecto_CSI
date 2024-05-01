@@ -30,18 +30,18 @@
                     <!-- The "#" is where you will put the direction you want this button to take you. -->
                     <!-- The "fas fa-(something)" is the icon from font awesome. -->
 
-                    <li><a th:href= "@{/}"><i class="fa-solid fa-house"></i></i>Home</a></li> <!-- Home "button" with its icon. -->
-                    <li><a href="#"><i class="fa-solid fa-address-book"></i>Clients</a></li> <!-- Clients "button" with its icon. -->
-                    <li><a href="#"><i class="fa-solid fa-gear"></i>Settings</a></li> <!-- Settings "button" with its icon. -->
-                    <li><a href="#"><i class="fa-solid fa-bars-staggered"></i>Features</a></li> <!-- Features "button" with its icon. -->
-                    <li><a href="#"><i class="fa-solid fa-user"></i>About Us</a></li> <!-- About Us "button" with its icon. -->
-                    <li><a href="#"><i class="fa-solid fa-envelope"></i>Contact Us</a></li> <!-- Contact Us "button" with its icon. -->
+                    <li><a th:href= "@{/}"><i class="fa-solid fa-house"></i></i>Inicio</a></li> <!-- Home "button" with its icon. -->
+                    <li><a th:href="@{/login}"><i class="fa-solid fa-address-book"></i>Iniciar Sesión</a></li> <!-- Clients "button" with its icon. -->
+                    <li><a href="#"><i class="fa-solid fa-gear"></i>Ajustes</a></li> <!-- Settings "button" with its icon. -->
+                    <li><a href="#"><i class="fa-solid fa-bars-staggered"></i>Características</a></li> <!-- Features "button" with its icon. -->
+                    <li><a href="#"><i class="fa-solid fa-user"></i>Sobre nosostros</a></li> <!-- About Us "button" with its icon. -->
+                    <li><a href="#"><i class="fa-solid fa-envelope"></i>Contáctanos</a></li> <!-- Contact Us "button" with its icon. -->
 
                     <div id="icons"> <!-- Contains the buttons that will redirect you to his icon page. -->
-                        <a href="#"><i class="fa-brands fa-facebook"></i></a> <!-- Facebook button and icon. -->
-                        <a href="#"><i class="fa-brands fa-twitter"></i></a> <!-- Twitter button and icon. -->
+                        <a href="https://www.facebook.com/lasallesantoangelzaragoza/?locale=es_ES"><i class="fa-brands fa-facebook"></i></a> <!-- Facebook button and icon. -->
+                        <a href="https://twitter.com/salleSAZgz"><i class="fa-brands fa-twitter"></i></a> <!-- Twitter button and icon. -->
                         <a href="https://github.com/juan291100/Proyecto_CSI"><i class="fa-brands fa-github"></i></a> <!-- Github button and icon. -->
-                        <a href="#"><i class="fa-brands fa-youtube"></i></a> <!-- Youtube button and icon. -->
+                        <a href="https://www.instagram.com/lasallesantoangelzaragoza/?hl=es"><i class="fa-brands fa-instagram"></i></a> <!-- Instagram button and icon. -->
                     </div>
                 </ul>
             </nav>
@@ -81,8 +81,8 @@
                 </div>
             </div>
                
-            <a class="prev" onclick="plusSlides(-1)">&#10094;</a> <!-- Previous image button. -->
-            <a class="next" onclick="plusSlides(1)">&#10095;</a> <!-- Next image button. -->
+            <a class="prev" onclick="plusSlides(-1)"><i class="fa-solid fa-angle-left"></i></a> <!-- Previous image button. -->
+            <a class="next" onclick="plusSlides(1)"><i class="fa-solid fa-angle-right"></i></a> <!-- Next image button. -->
 
         </div><br>
     
@@ -143,7 +143,7 @@
 
         <!---------------------------------------------------{ OTHERS }--------------------------------------------------->
 
-        <a id="button-login" th:href= "@{/login}"> <!-- The login button. -->
+        <a id="button-login" th:href="@{/login}"> <!-- The login button. -->
             <i class="fa-solid fa-user"></i> <!-- User icon. -->
         </a>
 
