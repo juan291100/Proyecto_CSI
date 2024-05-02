@@ -36,8 +36,7 @@ public class LeaguesController {
     }
 
     /**
-     * Esta función Java maneja una solicitud GET para mostrar un formulario para agregar una liga
-     * europea.
+     * El método saveLeagueForm maneja una solicitud GET para mostrar un formulario para agregar una liga europea.
      * 
      * @param model El parámetro model es un objeto de la clase Model. 
      * Se utiliza para pasar datos a la plantilla HTML.
@@ -63,18 +62,40 @@ public class LeaguesController {
         return "redirect:/europeanLeagues";
     }
 
+    /**
+     * El método updateLeagueForm recupera una liga europea específica por su ID para su actualización.
+     * 
+     * @param leagueId El parámetro leagueId representa el identificador único de la liga europea que desea actualizar. 
+     * @param model El parámetro model es un objeto de la clase Model. 
+     * Se utiliza para pasar datos a la plantilla HTML.
+     * @return El método devuelve el template updateLeague.
+     */
     @GetMapping("/europeanLeagues/update/{leagueId}")
-    public String updateStudentForm(@PathVariable Long leagueId, Model model){
+    public String updateLeagueForm(@PathVariable Long leagueId, Model model){
         model.addAttribute("league", lService.getById(leagueId));
         return "europeanLeagues/updateLeague";
     }
 
+    /**
+     * El método updateLeague actualiza un objeto de liga europea y redirige a la página de europeanLeagues.
+     * 
+     * @param leagieId El parámetro leagueId representa el identificador único de la liga europea que desea actualizar. 
+     * @param lModel El parámetro lModel es de tipo LeaguesModel. Se utiliza para capturar los datos de una liga
+     * que se está actualizando.
+     * @return El método redirige al template europeanLeagues.
+     */
     @PostMapping("/europeanLeagues/update/{leagueId}")
     public String updateLeague(@PathVariable Long leagueId, @ModelAttribute("league") LeaguesModel lModel){
         lService.updateLeague(leagueId, lModel);
         return "redirect:/europeanLeagues";
     }
 
+    /**
+     * El método deleteLeague elimina un objeto de liga europea.
+     * 
+     * @param leagieId El parámetro leagueId representa el identificador único de la liga europea que desea eliminar. 
+     * @return El método no devuelve nada para eliminar la fila escogida.
+     */
     @ResponseBody
     @DeleteMapping("/europeanLeagues/delete/{leagueId}")
     public String deleteLeague(@PathVariable Long leagueId){

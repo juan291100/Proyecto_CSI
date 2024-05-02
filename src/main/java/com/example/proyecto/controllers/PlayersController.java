@@ -31,12 +31,25 @@ import com.example.proyecto.services.TeamsService;
 import jakarta.servlet.http.HttpServletResponse;
 
 @Controller
+/**
+ * La clase PlayersController es responsable de manejar las operaciones CRUD para jugadores
+ * europeos utilizando anotaciones Spring.
+ */
 public class PlayersController {
 
+    /*@Autowired permite inyectar unas dependencias con otras dentro de Spring*/
     @Autowired PlayersService pService;
     @Autowired TeamsService tService;
     @Autowired LeaguesService lService;
 
+    /**
+     * El método getAllPlayersByTeamId recupera los jugadores según su equipo.
+     * 
+     * @param teamId El parámetro teamId representa el identificador único del equipo europeo. 
+     * @param model El parámetro model es un objeto de la clase Model. 
+     * Se utiliza para pasar datos a la plantilla HTML.
+     * @return El método devuelve el template europeanPlayers.
+     */
     @GetMapping("/europeanPlayers/{teamId}")
     public String getAllPlayersByTeamId(@PathVariable Long teamId, Model model){
         model.addAttribute("players", pService.getAllByTeamId(teamId));
@@ -46,6 +59,15 @@ public class PlayersController {
         return "europeanPlayers/europeanPlayers";
     }
 
+    /**
+     * El método searchPlayer busca los jugadores segun el input escrito.
+     * 
+     * @param search El parámetro search representa el String de busqueda. 
+     * @param teamId El parámetro teamId representa el identificador único del equipo europeo. 
+     * @param model El parámetro model es un objeto de la clase Model. 
+     * Se utiliza para pasar datos a la plantilla HTML.
+     * @return El método devuelve el template europeanPlayers, especificamente la tabla de los jugadores.
+     */
     @PostMapping("/europeanPlayers/{teamId}/searchPlayers")
     public String searchPlayer(@RequestParam(name="searchData") String search, @PathVariable Long teamId, Model model){
         try {
@@ -56,6 +78,14 @@ public class PlayersController {
         return "europeanPlayers/europeanPlayers :: updateTable";
     } 
 
+    /**
+     * El método savePlayerForm maneja una solicitud GET para mostrar un formulario para agregar un jugador europeo.
+     * 
+     * @param teamId El parámetro teamId representa el identificador único del equipo europeo. 
+     * @param model El parámetro model es un objeto de la clase Model. 
+     * Se utiliza para pasar datos a la plantilla HTML.
+     * @return El método devuelve el template addPlayer".
+     */
     @GetMapping("/europeanPlayers/{teamId}/add")
     public String savePlayerForm(@PathVariable Long teamId, Model model){
         PlayersModel pModel = new PlayersModel(teamId);
@@ -63,24 +93,53 @@ public class PlayersController {
         return "europeanPlayers/addPlayer";
     }
 
+    /**
+     * El método savePlayer guarda un objeto de jugador europeo y redirige a la página de europeanPlayers.
+     * 
+     * @param pModel El parámetro tModel es de tipo PlayersModel. Se utiliza para capturar los datos de un jugador
+     * que se está agregando o guardando.
+     * @return El método redirige al template europeanPlayers.
+     */
     @PostMapping("/europeanPlayers/{teamId}/add")
     public String savePlayer(@ModelAttribute("player") PlayersModel pModel) {
         pService.savePlayer(pModel);
         return "redirect:/europeanPlayers/{teamId}";
     }
 
+    /**
+     * El método updatePlayerForm recupera un jugador europeo específico por su ID para su actualización.
+     * 
+     * @param playerId El parámetro playerId representa el identificador único del jugador europeo que desea actualizar. 
+     * @param model El parámetro model es un objeto de la clase Model. 
+     * Se utiliza para pasar datos a la plantilla HTML.
+     * @return El método devuelve el template updatePlayer.
+     */
     @GetMapping("/europeanPlayers/{teamId}/update/{playerId}")
     public String updatePlayerForm(@PathVariable Long playerId, Model model){
         model.addAttribute("player", pService.getById(playerId));
         return "europeanPlayers/updatePlayer";
     }
 
+    /**
+     * El método updatePlayer actualiza un objeto de juagdor europeo y redirige a la página de europeanPlayers.
+     * 
+     * @param playerId El parámetro playerId representa el identificador único del jugador europeo que desea actualizar. 
+     * @param pModel El parámetro pModel es de tipo PlayersModel. Se utiliza para capturar los datos del jugador
+     * que se está actualizando.
+     * @return El método redirige al template europeanPlayers.
+     */
     @PostMapping("/europeanPlayers/{teamId}/update/{playerId}")
     public String updatePlayer(@PathVariable Long playerId, @ModelAttribute("player") PlayersModel pModel){
         pService.updatePlayer(playerId, pModel);
         return "redirect:/europeanPlayers/{teamId}";
     }
 
+    /**
+     * El método deletePlayer elimina un objeto de jugador europeo.
+     * 
+     * @param playerId El parámetro playerId representa el identificador único del jugador europeo que desea eliminar. 
+     * @return El método no devuelve nada para eliminar la fila escogida.
+     */
     @ResponseBody
     @DeleteMapping("/europeanPlayers/delete/{playerId}")
     public String deletePlayer(@PathVariable Long playerId){
@@ -88,12 +147,25 @@ public class PlayersController {
         return "";
     }
 
+    /**
+     * El método exportToPDF exporta una tabla de jugafores a PDF.
+     * 
+     * @param teamId El parámetro teamId representa el identificador único del equipo europeo. 
+     * @param response El parámetro respuesta se utiliza para enviar el archivo PDF generado al cliente/navegador.
+     */
     @GetMapping("/europeanPlayers/{teamId}/exportToPDF")
     public void exportToPDF(@PathVariable Long teamId, HttpServletResponse response) throws IOException{
         OpenPDF openPDF = new OpenPDF();
         openPDF.exportToPdf(pService.getAllByTeamId(teamId), response);
     }
 
+    /**
+     *  El método exportToTxt exporta una tabla de jugafores a .txt.
+     * 
+     * @param teamId El parámetro teamId representa el identificador único del equipo europeo. 
+     * @param response El parámetro respuesta se utiliza para enviar el archivo PDF generado al cliente/navegador.
+     * @return La respuesta von el inputStreamResource
+     */
     @GetMapping("/europeanPlayers/{teamId}/exportToTxt")
     public ResponseEntity<InputStreamResource> exportToTxt(@PathVariable Long teamId, HttpServletResponse response) 
             throws IOException{
@@ -117,6 +189,15 @@ public class PlayersController {
 
     }
 
+    /**
+     *  El método importFromTxt exporta una tabla de jugafores a .txt.
+     * 
+     * @param teamId El parámetro teamId representa el identificador único del equipo europeo. 
+     * @param mFile El archivo a importar obtenido del formulario.
+     * @param model El parámetro model es un objeto de la clase Model. 
+     * Se utiliza para pasar datos a la plantilla HTML.
+     * @return El método devuelve el template europeanPlayers, en especifico la tabla que contiene.
+     */
     @PostMapping("/europeanPlayers/{teamId}/importFromTxt")
     public String importFromTxt(@PathVariable Long teamId, @RequestParam("file") MultipartFile mFile, Model model) throws IOException {
 
