@@ -16,7 +16,7 @@
 
         <br><div class="container" style="border: 2px solid black;border-radius: 15px;">
 
-            <br><h1 style="text-align: center;">Team's Info</h1><br>
+            <br><h1 style="text-align: center;">Player's Info</h1><br>
 
             <form th:action="@{/europeanPlayers/{teamId}/update/{playerId}(teamId=${player.teamId},playerId=${player.playerId})}" 
                 th:object="${player}" method="post">
