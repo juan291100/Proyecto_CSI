@@ -62,6 +62,9 @@ public class LeaguesService {
         lModel.setLeagueName(lRequest.getLeagueName());
         lModel.setLeagueCountry(lRequest.getLeagueCountry());
         lModel.setLeagueAssociation(lRequest.getLeagueAssociation());
+        lModel.setLeagueImagePath(lRequest.getLeagueImagePath());
+        lModel.setLeagueCountryShort(lRequest.getLeagueCountryShort());
+        lModel.setLeagueCountryFlagImagePath(lRequest.getLeagueCountryFlagImagePath());
         return saveLeague(lModel);
     }
 

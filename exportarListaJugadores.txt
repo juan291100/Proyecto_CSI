@@ -1,17 +1,16 @@
-Bruno || Fernandes || 27 || Midfielder || 18
-Cristiano || Ronaldo || 37 || Forward || 7
-Marcus || Rashford || 24 || Forward || 10
-Paul || Pogba || 29 || Midfielder || 6
-David || de Gea || 31 || Goalkeeper || 1
-Harry || Maguire || 29 || Defender || 5
-Luke || Shaw || 26 || Defender || 23
-Jadon || Sancho || 22 || Forward || 25
-Raphael || Varane || 29 || Defender || 19
-Fred || Rodrigues || 28 || Midfielder || 17
-Aaron || Wan-Bissaka || 24 || Defender || 29
-Scott || McTominay || 25 || Midfielder || 39
-Mason || Greenwood || 20 || Forward || 11
-Nemanja || Mati? || 33 || Midfielder || 31
-Dean || Henderson || 25 || Goalkeeper || 26
-Anthony || Martial || 26 || Forward || 9
-Karim || Benzema || 34 || Forward || 9
+Mohamed || Salah || 29 || Forward || 11
+Sadio || Mané || 29 || Forward || 10
+Virgil || van Dijk || 30 || Defender || 4
+Alisson || Becker || 29 || Goalkeeper || 1
+Fabinho || Tavares || 28 || Midfielder || 3
+Jordan || Henderson || 31 || Midfielder || 14
+Trent || Alexander-Arnold || 23 || Defender || 66
+Andrew || Robertson || 27 || Defender || 26
+Diogo || Jota || 25 || Forward || 20
+Thiago || Alcântara || 30 || Midfielder || 6
+Roberto || Firmino || 30 || Forward || 9
+Naby || Keïta || 26 || Midfielder || 8
+Joël || Matip || 30 || Defender || 32
+James || Milner || 36 || Midfielder || 7
+Joe || Gomez || 24 || Defender || 12
+Curtis || Jones || 20 || Midfielder || 17

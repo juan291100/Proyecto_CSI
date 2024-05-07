@@ -84,6 +84,7 @@ public class TeamsService {
         tModel.setTeamYear(tRequest.getTeamYear());
         tModel.setTeamCity(tRequest.getTeamCity());
         tModel.setTeamTrophies(tRequest.getTeamTrophies());
+        tModel.setTeamImagePath(tRequest.getTeamImagePath());
         return saveTeam(tModel);
     }
 
