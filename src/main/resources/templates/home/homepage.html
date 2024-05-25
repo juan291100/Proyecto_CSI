@@ -56,6 +56,8 @@
 
         <!-------------------------------------------------{ SLIDESHOW }-------------------------------------------------->
 
+        <div class="sliders-text-mini"></div>
+
         <div class="opacity"></div> <!-- Opacity above the images, to give them a more dark filter. -->
 
         <div class="slideshow-container"> <!-- Area wich contains all the images and their text. -->
@@ -143,12 +145,15 @@
 
         <!---------------------------------------------------{ OTHERS }--------------------------------------------------->
 
+        <div id="background-mini"></div>
+
         <a id="button-login" th:href="@{/login}"> <!-- The login button. -->
             <i class="fa-solid fa-user"></i> <!-- User icon. -->
         </a>
 
-        <img id="main-logo" th:src="@{/imagenesInicio/uefaemblem.png}"> <!-- UEFA logo in the center of the main page. -->
-
+        <div id="main-box">
+            <img id="main-logo" th:src="@{/imagenesInicio/uefaemblem.png}"> <!-- UEFA logo in the center of the main page. -->
+        </div>
         <!---------------------------------------------------------------------------------------------------------------->
 
     </body>

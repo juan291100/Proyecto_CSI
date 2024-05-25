@@ -25,8 +25,8 @@
 
 #login-box{
     position: fixed;
-    height: 470px;
-    width: 600px;
+    height: 65%;
+    width: 40%;
     left: 30%;
     top: 18%;
     background-color: #f2f2f2;
@@ -36,12 +36,7 @@
     z-index: 2;
 }
 
-#top-area{
-    display: flex;
-}
-
 #emblem{
-    margin-left: 38%;
     height: 100px;
     width: 150x;
     margin-top: 30px;
@@ -51,7 +46,7 @@
     margin-top: 30px;
     border: solid 2px black;
     border-radius: 50px;
-    width: 360px;
+    width: 58%;
     margin-left: 20%;
 }
 
@@ -64,7 +59,7 @@
 #user-input{
     background-color: #f2f2f2;
     border: 0px;
-    width: 300px;
+    width: 85%;
     font-size: 20px;
     margin-right: 10px;
     margin-top: 1px;
@@ -78,7 +73,7 @@
 #password-input{
     background-color: #f2f2f2;
     border: 0px;
-    width: 300px;
+    width: 85%;
     font-size: 20px;
     margin-right: 10px;
     margin-top: 2px;
@@ -94,7 +89,7 @@
     margin-top: 30px;
     border: solid 2px black;
     border-radius: 50px;
-    width: 360px;
+    width: 45%;
     cursor: pointer;
 }
 
@@ -104,9 +99,10 @@
 }
 
 #close-button{
-    margin-top: 25px;
+    position: absolute;
+    margin-top: 20px;
+    margin-left: 30%;
     font-size: 20px;
-    margin-left: 28%;
     cursor: pointer;
 }
 
@@ -141,3 +137,57 @@
     margin-top: 30px;
 }
 /*-------------------------------------------------------------------------------------------------------------------------------*/
+
+@media only screen and (max-width: 600px) {
+    #login-box{
+        width: 82%;
+        left: 10%;
+    }
+    
+    #user-input{
+        width: 30%;
+    }
+    
+    #password-input{
+        width: 45%;
+    }
+    
+    #login-input{
+        width: 45%;
+    }
+    
+    #close-button{
+        margin-left: 20%;
+    }
+
+    #registration{
+        margin-top: 40px;
+    }
+}
+
+@media only screen and (min-width: 600px) and (max-width: 1400px) {
+    #login-box{
+        width: 75%;
+        left: 15%;
+    }
+    
+    #user-input{
+        width: 55%;
+    }
+    
+    #password-input{
+        width: 45%;
+    }
+    
+    #login-input{
+        width: 45%;
+    }
+    
+    #close-button{
+        margin-left: 10%;
+    }
+    
+    #registration{
+        margin-top: 40px;
+    }
+}
