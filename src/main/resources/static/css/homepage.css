@@ -232,6 +232,19 @@
     font-family: 'Bungee', 'Changa', sans-serif;
     outline: #000;
     line-height: 70px;
+    animation-duration: 2s;
+    animation-name: slider-text;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+@keyframes slider-text{
+    from{
+        margin-left: 20px;
+    }
+    to{
+        margin-left: 80px;
+    }
 }
 
 .dot-box{
